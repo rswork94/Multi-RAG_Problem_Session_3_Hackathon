@@ -97,18 +97,28 @@ def test_api_round_trip(mini_corpus):
     assert c.get("/api/kpis").json()["latest"]["engine"] == "graph"
 
 
-def test_llm_settings_never_return_the_key():
+def test_llm_settings_never_return_or_store_the_key():
     from fastapi.testclient import TestClient
 
+    from app.config import settings
+    from app.llm import client
     from app.main import app
     c = TestClient(app)
     r = c.put("/api/llm/settings", json={"provider": "anthropic", "api_key": "sk-ant-test-0000-SECRET-1234",
                                          "synth_model": "claude-opus-5-5", "utility_model": "claude-haiku-5-5",
-                                         "synth_effort": "low", "remember": False}).json()
-    assert r["has_key"] and r["key_hint"] == "…1234" and "SECRET" not in str(r)
+                                         "synth_effort": "low", "remember": True}).json()  # stale field is ignored
+    assert r["has_key"] and r["key_hint"] == "…1234" and "SECRET" not in str(r) and "remember" not in r
+    # Nothing under DATA_DIR may contain the key: it lives in server memory only.
+    assert not any(p.is_file() and "SECRET" in p.read_text(errors="ignore")
+                   for p in settings.path(".").rglob("*") if p.suffix in ("", ".json", ".jsonl", ".txt"))
+    assert not settings.path("llm_settings.json").exists()
+    # A key file left by an older version is deleted at startup.
+    settings.path("llm_settings.json").write_text('{"api_key": "sk-ant-old-SECRET"}')
+    client._purge_saved_key()
+    assert not settings.path("llm_settings.json").exists()
     assert c.get("/api/llm/settings").json()["synth_effort"] == "low"
     assert c.put("/api/llm/settings", json={"provider": "x"}).status_code == 422
     models = c.get("/api/llm/models?provider=anthropic").json()["models"]
     assert any(m["id"] == "claude-opus-5-5" for m in models)
-    c.put("/api/llm/settings", json={"provider": "anthropic", "api_key": "", "remember": False})
+    c.put("/api/llm/settings", json={"provider": "anthropic", "api_key": ""})
     assert c.get("/api/health").json()["llm_mode"] == "offline"

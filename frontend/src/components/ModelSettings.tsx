@@ -7,7 +7,6 @@ interface LlmSettings {
   synth_model: string;
   utility_model: string;
   synth_effort: "low" | "medium" | "high";
-  remember: boolean;
   has_key: boolean;
   key_hint: string;
   mode: "online" | "offline";
@@ -33,7 +32,6 @@ export function ModelSettings() {
   const [synth, setSynth] = useState("");
   const [util, setUtil] = useState("");
   const [effort, setEffort] = useState<"low" | "medium" | "high">("medium");
-  const [remember, setRemember] = useState(false);
   const [models, setModels] = useState<ModelInfo[]>([]);
   const [msg, setMsg] = useState<{ kind: "good" | "bad" | "info"; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
@@ -46,7 +44,6 @@ export function ModelSettings() {
       setSynth(r.synth_model);
       setUtil(r.utility_model);
       setEffort(r.synth_effort);
-      setRemember(r.remember);
       setOpen(r.mode === "offline");
     }).catch(() => setS(null));
   }, []);
@@ -67,12 +64,13 @@ export function ModelSettings() {
   };
   const savedHere = !!s?.has_key && s.provider === provider;
 
-  async function save(test: boolean) {
+  async function save(test: boolean, forget = false) {
     setBusy(true);
     setMsg(null);
     try {
-      const body: Record<string, unknown> = { provider, synth_model: synth, utility_model: util, synth_effort: effort, remember };
-      if (key.trim()) body.api_key = key.trim();
+      const body: Record<string, unknown> = { provider, synth_model: synth, utility_model: util, synth_effort: effort };
+      if (forget) body.api_key = "";
+      else if (key.trim()) body.api_key = key.trim();
       else if (s && s.provider !== provider) body.api_key = "";
       const r = await sendJSON<LlmSettings>("/api/llm/settings", "PUT", body);
       setS(r);
@@ -81,8 +79,12 @@ export function ModelSettings() {
       if (test) {
         const t = await sendJSON<any>("/api/llm/test", "POST");
         setMsg({ kind: "good", text: `Connected · ${t.model} replied in ${t.ms} ms ($${(t.cost_usd ?? 0).toFixed(5)})` });
+      } else if (forget) {
+        setMsg({ kind: "info", text: r.mode === "online"
+          ? "Key forgotten. Still online through a key set in the server's environment."
+          : "Key forgotten. The app is offline until you paste a key." });
       } else {
-        setMsg({ kind: "info", text: r.mode === "online" ? "Saved. Answers now use Claude." : "Saved. No key yet, so the app stays offline." });
+        setMsg({ kind: "info", text: r.mode === "online" ? "Applied. Answers now use Claude." : "Applied. No key yet, so the app stays offline." });
       }
       const h = await getJSON<any>("/api/health");
       setState({ health: h });
@@ -121,13 +123,14 @@ export function ModelSettings() {
             <div className="row" style={{ flexWrap: "nowrap", gap: 6 }}>
               <input type={showKey ? "text" : "password"} autoComplete="off" spellCheck={false} value={key}
                 onChange={(e) => setKey(e.target.value)} style={{ flex: 1, minWidth: 0 }}
-                placeholder={savedHere ? "Paste a new key to replace the saved one" : `Paste your key (${provider === "openrouter" ? "sk-or-v1-…" : "sk-ant-…"})`} />
+                placeholder={savedHere ? "Paste a new key to replace the current one" : `Paste your key (${provider === "openrouter" ? "sk-or-v1-…" : "sk-ant-…"})`} />
               <button type="button" className="btn small" onClick={() => setShowKey(!showKey)} disabled={!key}
                 title={showKey ? "Hide the pasted key" : "Show the pasted key to check it"}>{showKey ? "Hide key" : "Show key"}</button>
             </div>
             {savedHere && !key && (
               <span className="muted">
-                A full key is saved. For safety only its last 4 characters ({s!.key_hint.replace("…", "")}) are ever shown. Leave this blank to keep it.
+                A key is in use for this session (server memory only, never written to disk). Only its last 4 characters
+                ({s!.key_hint.replace("…", "")}) are shown. Leave this blank to keep using it.
               </span>
             )}
           </label>
@@ -152,15 +155,16 @@ export function ModelSettings() {
                 <button key={x} className={effort === x ? "on" : ""} onClick={() => setEffort(x)}>{x}</button>
               ))}
             </div>
-            <label className="check"><input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />Remember key on this machine</label>
           </div>
           <div className="row">
-            <button className="btn primary" disabled={busy} onClick={() => save(true)}>Save & test</button>
-            <button className="btn" disabled={busy} onClick={() => save(false)}>Save</button>
+            <button className="btn primary" disabled={busy} onClick={() => save(true)}>Apply & test</button>
+            <button className="btn" disabled={busy} onClick={() => save(false)}>Apply</button>
+            {savedHere && <button className="btn" disabled={busy} onClick={() => save(false, true)}>Forget key</button>}
           </div>
           <div className="small muted">
             The key goes only to the local backend, which uses it to call {provider === "openrouter" ? "openrouter.ai" : "api.anthropic.com"}.
-            After saving, the full key stays in the backend{remember ? " (backend/data/llm_settings.json, owner-only, git-ignored)" : " (in memory until the server restarts)"} and is never sent back to the browser.
+            The key is never written to disk and never sent back to the browser. It stays in the server's memory only and is
+            gone when the server stops, so paste it again after a restart.
           </div>
         </>
       )}

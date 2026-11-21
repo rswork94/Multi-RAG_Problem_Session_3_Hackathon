@@ -4,12 +4,13 @@ Providers (both through the official `anthropic` SDK, Messages API):
   anthropic   - api.anthropic.com. Key from the UI, ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN, or an `ant auth` profile.
   openrouter  - OpenRouter's Anthropic-compatible endpoint (base_url https://openrouter.ai/api, bearer key).
                 Model ids look like "anthropic/claude-opus-5.5".
-The key is never returned to the UI (only its last 4 characters) and never logged. It is kept in memory, and written
-to data/llm_settings.json (mode 600, git-ignored) only when the user ticks "remember".
+The key is never returned to the UI (only its last 4 characters), never logged and never written to disk: it lives in
+server memory only and is gone when the server stops. A data/llm_settings.json left by older versions (which could
+save the key) is deleted at startup.
 """
 from __future__ import annotations
 
-import json
+import logging
 import os
 import threading
 import time
@@ -37,6 +38,7 @@ ANTHROPIC_MODELS = [
 ]
 _PRICES: dict[str, tuple[float, float, float]] = {m[0]: m[2:] for m in ANTHROPIC_MODELS}
 _lock = threading.RLock()
+log = logging.getLogger("multirag.llm")
 
 
 class LLMError(RuntimeError):
@@ -50,7 +52,6 @@ class LLMSettings:
     synth_model: str = ""
     utility_model: str = ""
     synth_effort: str = "medium"
-    remember: bool = False
 
     def public(self) -> dict:
         d = asdict(self)
@@ -60,17 +61,16 @@ class LLMSettings:
         return d
 
 
-def _store_path() -> Path:
-    return settings.path("llm_settings.json")
+def _purge_saved_key() -> None:
+    """Older versions could save the key to data/llm_settings.json. Keys are never kept on disk, so delete it."""
+    p = settings.path("llm_settings.json")
+    if p.exists():
+        p.unlink()
+        log.warning("Deleted %s: API keys are kept in memory only, never on disk.", p)
 
 
 def _initial() -> LLMSettings:
-    p = _store_path()
-    if p.exists():
-        try:
-            return LLMSettings(**json.loads(p.read_text()))
-        except Exception:
-            pass
+    _purge_saved_key()
     provider = os.getenv("LLM_PROVIDER", "openrouter" if os.getenv("OPENROUTER_API_KEY") else "anthropic")
     key = os.getenv("OPENROUTER_API_KEY", "") if provider == "openrouter" else ""
     return LLMSettings(provider=provider, api_key=key,
@@ -88,8 +88,8 @@ def current() -> LLMSettings:
     return _settings
 
 
-def update(provider: str, api_key: str | None, synth_model: str, utility_model: str, synth_effort: str,
-           remember: bool) -> LLMSettings:
+def update(provider: str, api_key: str | None, synth_model: str, utility_model: str, synth_effort: str) -> LLMSettings:
+    """Applies settings in memory only. Nothing, the key least of all, is written to disk."""
     global _settings, _client
     if provider not in DEFAULTS:
         raise ValueError("provider must be 'anthropic' or 'openrouter'")
@@ -102,15 +102,9 @@ def update(provider: str, api_key: str | None, synth_model: str, utility_model: 
         _settings = LLMSettings(provider=provider, api_key=key,
                                 synth_model=synth_model or DEFAULTS[provider]["synth_model"],
                                 utility_model=utility_model or DEFAULTS[provider]["utility_model"],
-                                synth_effort=synth_effort, remember=remember)
+                                synth_effort=synth_effort)
         _client = None
         CAPS.clear()
-        p = _store_path()
-        if remember:
-            p.write_text(json.dumps(asdict(_settings)))
-            os.chmod(p, 0o600)
-        elif p.exists():
-            p.unlink()
     return _settings
 
 

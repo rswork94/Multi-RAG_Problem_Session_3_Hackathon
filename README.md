@@ -25,7 +25,9 @@ See [CLAUDE.md](CLAUDE.md) for the full design.
    - choose **OpenRouter** or **Anthropic API**
    - paste the key
    - pick the answer model (default Opus 5.5) and the utility model (default Haiku 5.5)
-   - click **Save & test**
+   - click **Apply & test**
+
+   The key is held in server memory only, so paste it again after each restart.
 
    Alternatively, set `ANTHROPIC_API_KEY` or `OPENROUTER_API_KEY` in `backend/.env`.
 4. Build the UI:
@@ -94,7 +96,7 @@ Prices: Opus 5.5 is $4 / $20 per MTok; Haiku 5.5 is $0.10 / $0.50.
 ## Models and keys
 - **Both providers go through the official `anthropic` SDK.** OpenRouter uses its Anthropic-compatible endpoint (`https://openrouter.ai/api`), with model ids such as `anthropic/claude-opus-5.5`. The model list and prices come live from OpenRouter's public catalogue.
 - **The answer model is the same for all three engines**, so the comparison stays fair. The utility model handles HyDE passages, graph extraction and the faithfulness judge.
-- **The key is never shown again after saving** (only its last 4 characters). It lives in memory unless you tick *Remember key on this machine*, which writes `backend/data/llm_settings.json` (owner-only, git-ignored).
+- **The key is never written to disk.** It lives in the server's memory only and is gone when the server stops. It is never sent back to the browser: the UI shows only its last 4 characters. **Show key** lets you check a pasted key before applying it, and **Forget key** drops it from memory.
 - **If a provider rejects an Anthropic-specific parameter** (effort, JSON-schema output, server-side fallback), the app retries with a simpler request and remembers what works.
 
 ## What leaves your machine

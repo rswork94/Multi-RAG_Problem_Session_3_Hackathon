@@ -80,7 +80,6 @@ class LLMSettingsBody(BaseModel):
     synth_model: str = ""
     utility_model: str = ""
     synth_effort: str = "medium"
-    remember: bool = False
 
 
 @app.get("/api/llm/settings")
@@ -93,7 +92,7 @@ def get_llm_settings():
 @app.put("/api/llm/settings")
 def put_llm_settings(body: LLMSettingsBody):
     try:
-        client.update(body.provider, body.api_key, body.synth_model, body.utility_model, body.synth_effort, body.remember)
+        client.update(body.provider, body.api_key, body.synth_model, body.utility_model, body.synth_effort)
     except ValueError as e:
         raise HTTPException(422, str(e))
     return get_llm_settings()

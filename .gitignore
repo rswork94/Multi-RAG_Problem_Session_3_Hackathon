@@ -4,7 +4,7 @@ backend/.pytest_cache/
 **/__pycache__/
 *.pyc
 
-# Runtime data: vector index, graph, caches, saved API key (data/llm_settings.json)
+# Runtime data: vector index, graph, caches, run history (API keys are never written here)
 backend/data/
 
 # Secrets
