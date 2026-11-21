@@ -1,0 +1,105 @@
+{
+  "banner": "SYNTHETIC: benchmark only, not actual law. Fictional instruments, parties and figures.",
+  "title": "Signing Exposure Schedule: Kestrel Share Purchase Agreement",
+  "doc_type": "Table",
+  "issuer": "Transaction Services Team",
+  "issued_date": "2026-05-12",
+  "notes": [
+    {
+      "heading": "Basis of preparation",
+      "text": "This exposure schedule was prepared by the Transaction Services team as at the Execution Date of the Share Purchase Agreement relating to Kestrel Components Private Limited, to summarise the financial protections and thresholds agreed at signing. Amounts are stated in Indian rupees as whole numbers, percentages are stated as a percentage of the Purchase Consideration, and survival periods are stated in months from the Completion Date unless otherwise noted. The schedule reflects the signing position only and has not been updated for any amendment agreement executed after the Execution Date, so users should check the current transaction documents before relying on any figure."
+    }
+  ],
+  "rows": [
+    {
+      "item": "General warranty claims",
+      "clause_ref": "Clause 9.4(a)",
+      "threshold_inr": "69500000",
+      "cap_pct_consideration": "20.0",
+      "cap_inr": "1388940600",
+      "survival_months": "21",
+      "escrow_inr": "555600000",
+      "notes": "Tipping basket; per-claim de minimis of 4250000; escrow also secures Clauses 10.3 and 10.4"
+    },
+    {
+      "item": "Fundamental warranty claims",
+      "clause_ref": "Clause 9.4(b)",
+      "threshold_inr": "0",
+      "cap_pct_consideration": "100.0",
+      "cap_inr": "6944703000",
+      "survival_months": "120",
+      "escrow_inr": "0",
+      "notes": "Title, capacity, authority and capital structure"
+    },
+    {
+      "item": "Specific tax indemnity",
+      "clause_ref": "Clause 10.2",
+      "threshold_inr": "0",
+      "cap_pct_consideration": "4.5",
+      "cap_inr": "312500000",
+      "survival_months": "Until 90 days after final determination",
+      "escrow_inr": "208300000",
+      "notes": "Signing position; secured by the tax holdback released in October 2027"
+    },
+    {
+      "item": "Foundation FCRA indemnity",
+      "clause_ref": "Clause 10.3",
+      "threshold_inr": "0",
+      "cap_pct_consideration": "0.7",
+      "cap_inr": "48500000",
+      "survival_months": "54",
+      "escrow_inr": "0",
+      "notes": "Secured by the general escrow"
+    },
+    {
+      "item": "Environmental indemnity (soil and groundwater)",
+      "clause_ref": "Clause 10.4",
+      "threshold_inr": "0",
+      "cap_pct_consideration": "1.33",
+      "cap_inr": "92500000",
+      "survival_months": "48",
+      "escrow_inr": "0",
+      "notes": "Excludes renewal of operating consents"
+    },
+    {
+      "item": "Purchaser warranty claims",
+      "clause_ref": "Clause 15.4",
+      "threshold_inr": "0",
+      "cap_pct_consideration": "5.0",
+      "cap_inr": "347235150",
+      "survival_months": "18",
+      "escrow_inr": "0",
+      "notes": "Claims by the Seller against the Purchaser"
+    },
+    {
+      "item": "Net working capital adjustment",
+      "clause_ref": "Clause 3.3",
+      "threshold_inr": "15750000",
+      "cap_pct_consideration": "",
+      "cap_inr": "",
+      "survival_months": "",
+      "escrow_inr": "",
+      "notes": "Collar: no adjustment unless Completion working capital differs from the target of 1186000000 by more than the collar; beyond it the difference is paid rupee for rupee"
+    },
+    {
+      "item": "Purchaser deposit",
+      "clause_ref": "Clause 3.5",
+      "threshold_inr": "",
+      "cap_pct_consideration": "",
+      "cap_inr": "",
+      "survival_months": "",
+      "escrow_inr": "98500000",
+      "notes": "Applied to the consideration at Completion; forfeitable on Purchaser default"
+    },
+    {
+      "item": "MAC triggers",
+      "clause_ref": "Clause 1.2",
+      "threshold_inr": "483000000",
+      "cap_pct_consideration": "",
+      "cap_inr": "",
+      "survival_months": "",
+      "escrow_inr": "",
+      "notes": "Uninsured loss trigger; EBITDA fall of 22.5% over two consecutive quarters; Key Customer revenue share of 18%"
+    }
+  ]
+}

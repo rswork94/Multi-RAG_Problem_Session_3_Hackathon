@@ -1,0 +1,956 @@
+relations:
+- area: tax
+  src: Notification No. 41/2026
+  rel: ISSUED_BY
+  dst: CBDT
+  evidence: tax_cbdt_n41_2026:c1
+- area: tax
+  src: Notification No. 41/2026
+  rel: AMENDS
+  dst: Income-tax Rules, 2026
+  evidence: tax_cbdt_n41_2026:c1
+- area: tax
+  src: Notification No. 41/2026
+  rel: AMENDS
+  dst: Rule 31AG
+  evidence: tax_cbdt_n41_2026:c2
+- area: tax
+  src: Technical-fee limit of ₹47,500
+  rel: APPLIES_TO
+  dst: Rule 31AG
+  evidence: tax_cbdt_n41_2026:c2
+- area: tax
+  src: Technical-fee limit of ₹47,500
+  rel: SUPERSEDES
+  dst: Technical-fee limit of ₹30,000 (superseded)
+  evidence: tax_cbdt_n41_2026:c2
+- area: tax
+  src: Rule 31AG
+  rel: PART_OF
+  dst: Income-tax Rules, 2026
+  evidence: tax_it_rules_extract:c2
+- area: tax
+  src: Rule 31AG
+  rel: PRESCRIBES_FORM
+  dst: Form 26QF
+  evidence: tax_it_rules_extract:c2
+- area: tax
+  src: Rule 31AH
+  rel: PRESCRIBES_FORM
+  dst: Form 26QH
+  evidence: tax_it_rules_extract:c3
+- area: tax
+  src: Rule 31AF
+  rel: PRESCRIBES_FORM
+  dst: Form 27QF
+  evidence: tax_it_rules_extract:c4
+- area: tax
+  src: Rule 31AE
+  rel: PRESCRIBES_FORM
+  dst: Form 26QG
+  evidence: tax_it_rules_extract:c5
+- area: tax
+  src: Rule 37BF
+  rel: REFERS_TO
+  dst: Schedule of TDS Service Codes
+  evidence: tax_it_rules_extract:c6
+- area: tax
+  src: Circular No. 14/2026
+  rel: ISSUED_BY
+  dst: CBDT
+  evidence: tax_cbdt_c14_2026:c1
+- area: tax
+  src: Form 26QF
+  rel: HAS_DEADLINE
+  dst: Form 26QF due date
+  evidence: tax_cbdt_c14_2026:c2
+- area: tax
+  src: Form 26QG
+  rel: HAS_DEADLINE
+  dst: Form 26QG due date
+  evidence: tax_cbdt_c14_2026:c3
+- area: tax
+  src: Form 26QH
+  rel: HAS_DEADLINE
+  dst: Form 26QH due date
+  evidence: tax_cbdt_c14_2026:c4
+- area: tax
+  src: Form 27QF
+  rel: HAS_DEADLINE
+  dst: Form 27QF due date
+  evidence: tax_cbdt_c14_2026:c5
+- area: tax
+  src: Circular No. 14/2026
+  rel: SUPERSEDES
+  dst: Circular No. 5/2026
+  evidence: tax_cbdt_c14_2026:c6
+- area: tax
+  src: Circular No. 9/2026
+  rel: ISSUED_BY
+  dst: CBDT
+  evidence: tax_cbdt_c9_2026:c2
+- area: tax
+  src: Circular No. 9/2026
+  rel: REFERS_TO
+  dst: Service code TS-07
+  evidence: tax_cbdt_c9_2026:c2
+- area: tax
+  src: Schedule of TDS Service Codes
+  rel: ISSUED_BY
+  dst: CBDT
+  evidence: tax_tds_service_codes:c1
+- area: tax
+  src: Service code TS-07
+  rel: PART_OF
+  dst: Schedule of TDS Service Codes
+  evidence: tax_tds_service_codes:row5
+- area: tax
+  src: Service code TS-07
+  rel: PRESCRIBES_RATE
+  dst: TS-07 rate of 3.85 per cent
+  evidence: tax_tds_service_codes:row5
+- area: tax
+  src: TS-07 rate of 3.85 per cent
+  rel: SUPERSEDES
+  dst: TS-07 rate of 2.65 per cent (superseded)
+  evidence: tax_tds_service_codes:row4
+- area: tax
+  src: Service code TS-08
+  rel: PRESCRIBES_RATE
+  dst: TS-08 rate of 4.20 per cent
+  evidence: tax_tds_service_codes:row6
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: ISSUED_BY
+  dst: CBIC
+  evidence: tax_cbic_c263_2026:c1
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: REFERS_TO
+  dst: GST Council
+  evidence: tax_cbic_c263_2026:c1
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: REFERS_TO
+  dst: CGST Act
+  evidence: tax_cbic_c263_2026:c1
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: DEFINES
+  dst: Fixed-asset apportionment for nil-turnover units
+  evidence: tax_cbic_c263_2026:c2
+- area: tax
+  src: Fixed-asset apportionment for nil-turnover units
+  rel: APPLIES_TO
+  dst: Input Service Distributor
+  evidence: tax_cbic_c263_2026:c2
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: HAS_DEADLINE
+  dst: ISD 91-day distribution limit
+  evidence: tax_cbic_c263_2026:c3
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: PRESCRIBES_FORM
+  dst: Form ISD-04A
+  evidence: tax_cbic_c263_2026:c4
+- area: tax
+  src: Form ISD-04A
+  rel: HAS_DEADLINE
+  dst: Form ISD-04A due date
+  evidence: tax_cbic_c263_2026:c4
+- area: tax
+  src: ISD-04A filing limit of ₹4.80 crore
+  rel: TRIGGERS
+  dst: Form ISD-04A
+  evidence: tax_cbic_c263_2026:c4
+- area: tax
+  src: Form GSTR-6
+  rel: APPLIES_TO
+  dst: Input Service Distributor
+  evidence: tax_cbic_c263_2026:c5
+- area: tax
+  src: Circular No. 263/11/2026-GST
+  rel: REFERS_TO
+  dst: Notification No. 23/2026-Central Tax
+  evidence: tax_cbic_c263_2026:c6
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: ISSUED_BY
+  dst: CBIC
+  evidence: tax_cbic_n23_2026:c1
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: REFERS_TO
+  dst: CGST Rules
+  evidence: tax_cbic_n23_2026:c1
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: DEFINES
+  dst: E-invoicing threshold of ₹3.65 crore
+  evidence: tax_cbic_n23_2026:c1
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: REQUIRES
+  dst: Invoice Reference Number
+  evidence: tax_cbic_n23_2026:c1
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: SUPERSEDES
+  dst: Notification No. 06/2026-Central Tax
+  evidence: tax_cbic_n23_2026:c2
+- area: tax
+  src: Notification No. 06/2026-Central Tax
+  rel: DEFINES
+  dst: E-invoicing threshold of ₹4.25 crore (superseded)
+  evidence: tax_cbic_n23_2026:c2
+- area: tax
+  src: E-invoicing threshold of ₹3.65 crore
+  rel: SUPERSEDES
+  dst: E-invoicing threshold of ₹4.25 crore (superseded)
+  evidence: tax_cbic_n23_2026:c2
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: HAS_DEADLINE
+  dst: 27-day IRP reporting window
+  evidence: tax_cbic_n23_2026:c3
+- area: tax
+  src: 27-day IRP reporting window
+  rel: APPLIES_TO
+  dst: Invoice Registration Portal
+  evidence: tax_cbic_n23_2026:c3
+- area: tax
+  src: Notification No. 23/2026-Central Tax
+  rel: HAS_DEADLINE
+  dst: 45-day reporting window for credit and debit notes
+  evidence: tax_cbic_n23_2026:c4
+- area: tax
+  src: SOP TRS-14
+  rel: DEFINES
+  dst: CBDT
+  evidence: tax_trs_sop_review:c1
+- area: tax
+  src: SOP TRS-14
+  rel: DEFINES
+  dst: CBIC
+  evidence: tax_trs_sop_review:c1
+- area: tax
+  src: SOP TRS-14
+  rel: DEFINES
+  dst: Form 26QF
+  evidence: tax_trs_sop_review:c2
+- area: tax
+  src: SOP TRS-14
+  rel: DEFINES
+  dst: Form ISD-04A
+  evidence: tax_trs_sop_review:c2
+- area: grc
+  src: KYC Amendment Directions 2026
+  rel: ISSUED_BY
+  dst: Reserve Bank of India
+  evidence: grc_rbi_kyc_amend_2026:c1
+- area: grc
+  src: KYC Amendment Directions 2026
+  rel: AMENDS
+  dst: KYC Direction 2016
+  evidence: grc_rbi_kyc_amend_2026:c1
+- area: grc
+  src: Paragraph 16A
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c2
+- area: grc
+  src: Paragraph 16A
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-05
+  evidence: grc_rbi_kyc_amend_2026:c2
+- area: grc
+  src: Paragraph 38B
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c3
+- area: grc
+  src: Paragraph 38B
+  rel: APPLIES_TO
+  dst: High-risk category
+  evidence: grc_rbi_kyc_amend_2026:c3
+- area: grc
+  src: High-risk category
+  rel: HAS_DEADLINE
+  dst: 18-month periodicity
+  evidence: grc_rbi_kyc_amend_2026:c3
+- area: grc
+  src: 18-month periodicity
+  rel: SUPERSEDES
+  dst: Two-year periodicity
+  evidence: grc_rbi_kyc_amend_2026:c3
+- area: grc
+  src: Paragraph 38B
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-11
+  evidence: grc_rbi_kyc_amend_2026:c3
+- area: grc
+  src: Paragraph 38C
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c4
+- area: grc
+  src: Paragraph 38C
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-09
+  evidence: grc_rbi_kyc_amend_2026:c4
+- area: grc
+  src: Paragraph 38D
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c5
+- area: grc
+  src: Paragraph 38D
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-09
+  evidence: grc_rbi_kyc_amend_2026:c5
+- area: grc
+  src: Paragraph 41A
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c6
+- area: grc
+  src: Paragraph 41A
+  rel: APPLIES_TO
+  dst: Politically exposed person
+  evidence: grc_rbi_kyc_amend_2026:c6
+- area: grc
+  src: Paragraph 41A
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-16
+  evidence: grc_rbi_kyc_amend_2026:c6
+- area: grc
+  src: Paragraph 44D
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c7
+- area: grc
+  src: Paragraph 44D
+  rel: APPLIES_TO
+  dst: Beneficial owner
+  evidence: grc_rbi_kyc_amend_2026:c7
+- area: grc
+  src: Paragraph 44D
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-07
+  evidence: grc_rbi_kyc_amend_2026:c7
+- area: grc
+  src: Paragraph 52F
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c8
+- area: grc
+  src: Paragraph 52F
+  rel: PRESCRIBES_FORM
+  dst: Suspicious Transaction Report
+  evidence: grc_rbi_kyc_amend_2026:c8
+- area: grc
+  src: Suspicious Transaction Report
+  rel: REFERS_TO
+  dst: FIU-IND
+  evidence: grc_rbi_kyc_amend_2026:c8
+- area: grc
+  src: Paragraph 52F
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-14
+  evidence: grc_rbi_kyc_amend_2026:c8
+- area: grc
+  src: Paragraph 52G
+  rel: PART_OF
+  dst: KYC Amendment Directions 2026
+  evidence: grc_rbi_kyc_amend_2026:c9
+- area: grc
+  src: Paragraph 52G
+  rel: PRESCRIBES_FORM
+  dst: Aggregated Small-Value Alert Report
+  evidence: grc_rbi_kyc_amend_2026:c9
+- area: grc
+  src: Aggregated Small-Value Alert Report
+  rel: HAS_DEADLINE
+  dst: ASVAR filing deadline
+  evidence: grc_rbi_kyc_amend_2026:c9
+- area: grc
+  src: Aggregated Small-Value Alert Report
+  rel: REFERS_TO
+  dst: FIU-IND
+  evidence: grc_rbi_kyc_amend_2026:c9
+- area: grc
+  src: Paragraph 52G
+  rel: IMPOSES_PENALTY
+  dst: Enforcement Head E-14
+  evidence: grc_rbi_kyc_amend_2026:c9
+- area: grc
+  src: Enforcement Circular 2026
+  rel: ISSUED_BY
+  dst: Reserve Bank of India
+  evidence: grc_rbi_enf_circ_2026:c1
+- area: grc
+  src: Enforcement Circular 2026
+  rel: DEFINES
+  dst: Enforcement Head E-05
+  evidence: grc_rbi_enf_circ_2026:c3
+- area: grc
+  src: Enforcement Circular 2026
+  rel: DEFINES
+  dst: Enforcement Head E-07
+  evidence: grc_rbi_enf_circ_2026:c3
+- area: grc
+  src: Enforcement Head E-07
+  rel: APPLIES_TO
+  dst: Beneficial owner
+  evidence: grc_rbi_enf_circ_2026:c3
+- area: grc
+  src: Enforcement Circular 2026
+  rel: DEFINES
+  dst: Enforcement Head E-09
+  evidence: grc_rbi_enf_circ_2026:c4
+- area: grc
+  src: Enforcement Circular 2026
+  rel: DEFINES
+  dst: Enforcement Head E-11
+  evidence: grc_rbi_enf_circ_2026:c5
+- area: grc
+  src: Enforcement Head E-11
+  rel: APPLIES_TO
+  dst: High-risk category
+  evidence: grc_rbi_enf_circ_2026:c5
+- area: grc
+  src: Enforcement Circular 2026
+  rel: DEFINES
+  dst: Enforcement Head E-14
+  evidence: grc_rbi_enf_circ_2026:c6
+- area: grc
+  src: Enforcement Head E-14
+  rel: REFERS_TO
+  dst: FIU-IND
+  evidence: grc_rbi_enf_circ_2026:c6
+- area: grc
+  src: Enforcement Circular 2026
+  rel: DEFINES
+  dst: Enforcement Head E-16
+  evidence: grc_rbi_enf_circ_2026:c7
+- area: grc
+  src: Enforcement Head E-16
+  rel: APPLIES_TO
+  dst: Politically exposed person
+  evidence: grc_rbi_enf_circ_2026:c7
+- area: grc
+  src: Repeat lapse multiplier
+  rel: PART_OF
+  dst: Enforcement Circular 2026
+  evidence: grc_rbi_enf_circ_2026:c8
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: ISSUED_BY
+  dst: Securities and Exchange Board of India
+  evidence: grc_sebi_brsr_core_2026:c1
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: REFERS_TO
+  dst: BRSR Core
+  evidence: grc_sebi_brsr_core_2026:c1
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: APPLIES_TO
+  dst: Cohort-1 entities
+  evidence: grc_sebi_brsr_core_2026:c2
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: APPLIES_TO
+  dst: Cohort-2 entities
+  evidence: grc_sebi_brsr_core_2026:c2
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: APPLIES_TO
+  dst: Cohort-3 entities
+  evidence: grc_sebi_brsr_core_2026:c2
+- area: grc
+  src: Cohort-1 entities
+  rel: REQUIRES
+  dst: Reasonable assurance
+  evidence: grc_sebi_brsr_core_2026:c2
+- area: grc
+  src: Cohort-2 entities
+  rel: REQUIRES
+  dst: Reasonable assurance
+  evidence: grc_sebi_brsr_core_2026:c2
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: SUPERSEDES
+  dst: SEBI Circular 2025/42
+  evidence: grc_sebi_brsr_core_2026:c5
+- area: grc
+  src: SEBI Circular 2026/087
+  rel: IMPOSES_PENALTY
+  dst: BRSR assurance delay fine
+  evidence: grc_sebi_brsr_core_2026:c6
+- area: grc
+  src: SEBI Circular 2026/112
+  rel: REFERS_TO
+  dst: SEBI Circular 2026/087
+  evidence: grc_sebi_assurer_2026:c1
+- area: grc
+  src: SEBI Circular 2026/112
+  rel: ISSUED_BY
+  dst: Securities and Exchange Board of India
+  evidence: grc_sebi_assurer_2026:c1
+- area: grc
+  src: Cohort-1 entities
+  rel: REQUIRES
+  dst: Category S1 assurance provider
+  evidence: grc_sebi_assurer_2026:c2
+- area: grc
+  src: Cohort-2 entities
+  rel: REQUIRES
+  dst: Category S2 assurance provider
+  evidence: grc_sebi_assurer_2026:c3
+- area: grc
+  src: Category S2 assurance provider
+  rel: REQUIRES
+  dst: ISO 14065
+  evidence: grc_sebi_assurer_2026:c3
+- area: grc
+  src: SEBI Circular 2026/112
+  rel: REFERS_TO
+  dst: BRSR assurance delay fine
+  evidence: grc_sebi_assurer_2026:c5
+- area: grc
+  src: Meridian ERM Policy v4.2
+  rel: ISSUED_BY
+  dst: Meridian Small Finance Bank
+  evidence: grc_msfb_erm_policy_2026:c1
+- area: grc
+  src: Meridian ERM Policy v4.2
+  rel: REFERS_TO
+  dst: ISO 31000:2018
+  evidence: grc_msfb_erm_policy_2026:c1
+- area: grc
+  src: Operational loss escalation threshold
+  rel: TRIGGERS
+  dst: Risk Management Committee of the Board
+  evidence: grc_msfb_erm_policy_2026:c4
+- area: grc
+  src: CRG-4
+  rel: PART_OF
+  dst: High-risk category
+  evidence: grc_msfb_erm_policy_2026:c5
+- area: grc
+  src: CRG-4
+  rel: HAS_DEADLINE
+  dst: Two-year periodicity
+  evidence: grc_msfb_erm_policy_2026:c6
+- area: grc
+  src: IA-SOP-KYC-2026/03
+  rel: ISSUED_BY
+  dst: Meridian Small Finance Bank
+  evidence: grc_msfb_ia_sop_2026:c1
+- area: grc
+  src: IA-SOP-KYC-2026/03
+  rel: REFERS_TO
+  dst: CTL-MAP-2026
+  evidence: grc_msfb_ia_sop_2026:c2
+- area: grc
+  src: IA-SOP-KYC-2026/03
+  rel: REFERS_TO
+  dst: Meridian ERM Policy v4.2
+  evidence: grc_msfb_ia_sop_2026:c5
+- area: grc
+  src: C-KYC-02
+  rel: MAPS_TO
+  dst: Paragraph 16A
+  evidence: grc_msfb_control_matrix_2026:row0
+- area: grc
+  src: C-KYC-05
+  rel: MAPS_TO
+  dst: Paragraph 38D
+  evidence: grc_msfb_control_matrix_2026:row1
+- area: grc
+  src: C-KYC-07
+  rel: MAPS_TO
+  dst: Paragraph 38B
+  evidence: grc_msfb_control_matrix_2026:row2
+- area: grc
+  src: C-KYC-08
+  rel: MAPS_TO
+  dst: Paragraph 38C
+  evidence: grc_msfb_control_matrix_2026:row3
+- area: grc
+  src: C-KYC-11
+  rel: MAPS_TO
+  dst: Paragraph 44D
+  evidence: grc_msfb_control_matrix_2026:row4
+- area: grc
+  src: C-EDD-03
+  rel: MAPS_TO
+  dst: Paragraph 41A
+  evidence: grc_msfb_control_matrix_2026:row5
+- area: grc
+  src: C-AML-12
+  rel: MAPS_TO
+  dst: Paragraph 52F
+  evidence: grc_msfb_control_matrix_2026:row6
+- area: grc
+  src: C-AML-15
+  rel: MAPS_TO
+  dst: Paragraph 52G
+  evidence: grc_msfb_control_matrix_2026:row7
+- area: grc
+  src: C-ESG-04
+  rel: MAPS_TO
+  dst: SEBI Circular 2026/112
+  evidence: grc_msfb_control_matrix_2026:row8
+- area: grc
+  src: C-ESG-06
+  rel: MAPS_TO
+  dst: SEBI Circular 2026/087
+  evidence: grc_msfb_control_matrix_2026:row9
+- area: grc
+  src: C-ERM-01
+  rel: MAPS_TO
+  dst: Meridian ERM Policy v4.2
+  evidence: grc_msfb_control_matrix_2026:row10
+- area: deals
+  src: Kestrel SPA
+  rel: APPLIES_TO
+  dst: Kestrel Components Private Limited
+  evidence: deals_spa_kestrel:c1
+- area: deals
+  src: Kestrel SPA
+  rel: REFERS_TO
+  dst: Halden Holdings LLP
+  evidence: deals_spa_kestrel:c1
+- area: deals
+  src: Kestrel SPA
+  rel: REFERS_TO
+  dst: Orion Capital Partners (Mauritius) Ltd
+  evidence: deals_spa_kestrel:c1
+- area: deals
+  src: Kestrel Shiksha Foundation
+  rel: PART_OF
+  dst: Kestrel Components Private Limited
+  evidence: deals_spa_kestrel:c14
+- area: deals
+  src: Kestrel Disclosure Letter
+  rel: ISSUED_BY
+  dst: Halden Holdings LLP
+  evidence: deals_disclosure_letter:c1
+- area: deals
+  src: Amendment Agreement No. 1
+  rel: AMENDS
+  dst: Kestrel SPA
+  evidence: deals_amendment_no1:c1
+- area: deals
+  src: Kestrel SPA
+  rel: SUPERSEDES
+  dst: Term Sheet
+  evidence: deals_fema_pricing_memo:c8
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Purchase Consideration
+  evidence: deals_spa_kestrel:c2
+- area: deals
+  src: Disclosure Item 7
+  rel: PART_OF
+  dst: Kestrel Disclosure Letter
+  evidence: deals_disclosure_letter:c4
+- area: deals
+  src: Disclosure Item 7
+  rel: REFERS_TO
+  dst: Paragraph 6.4 of Schedule 3
+  evidence: deals_disclosure_letter:c4
+- area: deals
+  src: Paragraph 6.4 of Schedule 3
+  rel: PART_OF
+  dst: Kestrel SPA
+  evidence: deals_spa_kestrel:c20
+- area: deals
+  src: Specific Tax Indemnity
+  rel: APPLIES_TO
+  dst: Paragraph 6.4 of Schedule 3
+  evidence: deals_spa_kestrel:c13
+- area: deals
+  src: Paragraph 6.4 of Schedule 3
+  rel: CAPPED_BY
+  dst: Original Specific Tax Indemnity Cap
+  evidence: deals_spa_kestrel:c13
+- area: deals
+  src: Specific Tax Indemnity
+  rel: CAPPED_BY
+  dst: Original Specific Tax Indemnity Cap
+  evidence: deals_spa_kestrel:c13
+- area: deals
+  src: Amendment Agreement No. 1
+  rel: DEFINES
+  dst: Revised Specific Tax Indemnity Cap
+  evidence: deals_amendment_no1:c2
+- area: deals
+  src: Revised Specific Tax Indemnity Cap
+  rel: SUPERSEDES
+  dst: Original Specific Tax Indemnity Cap
+  evidence: deals_amendment_no1:c2
+- area: deals
+  src: Specific Tax Indemnity
+  rel: CAPPED_BY
+  dst: Revised Specific Tax Indemnity Cap
+  evidence: deals_amendment_no1:c2
+- area: deals
+  src: Tax Holdback
+  rel: APPLIES_TO
+  dst: Specific Tax Indemnity
+  evidence: deals_spa_kestrel:c7
+- area: deals
+  src: Red Flag RF-1
+  rel: REQUIRES
+  dst: Specific Tax Indemnity
+  evidence: deals_dd_findings_memo:c7
+- area: deals
+  src: Disclosure Item 8
+  rel: REFERS_TO
+  dst: Paragraph 6.7 of Schedule 3
+  evidence: deals_disclosure_letter:c5
+- area: deals
+  src: Disclosure Item 8
+  rel: CAPPED_BY
+  dst: General Cap
+  evidence: deals_disclosure_letter:c5
+- area: deals
+  src: Paragraph 6.7 of Schedule 3
+  rel: PART_OF
+  dst: Kestrel SPA
+  evidence: deals_spa_kestrel:c20
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: General Cap
+  evidence: deals_spa_kestrel:c10
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: De Minimis Threshold
+  evidence: deals_spa_kestrel:c11
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Aggregate Claims Threshold
+  evidence: deals_spa_kestrel:c11
+- area: deals
+  src: Signing Exposure Schedule
+  rel: REFERS_TO
+  dst: Original Specific Tax Indemnity Cap
+  evidence: deals_exposure_schedule:row2
+- area: deals
+  src: Signing Exposure Schedule
+  rel: REFERS_TO
+  dst: Net Working Capital Collar
+  evidence: deals_exposure_schedule:row6
+- area: deals
+  src: Purchaser Liability Cap
+  rel: APPLIES_TO
+  dst: Orion Capital Partners (Mauritius) Ltd
+  evidence: deals_spa_kestrel:c19
+- area: deals
+  src: Non-compete Covenant
+  rel: APPLIES_TO
+  dst: Halden Holdings LLP
+  evidence: deals_spa_kestrel:c16
+- area: deals
+  src: Foundation FCRA Indemnity
+  rel: APPLIES_TO
+  dst: Kestrel Shiksha Foundation
+  evidence: deals_spa_kestrel:c14
+- area: deals
+  src: Foundation FCRA Indemnity
+  rel: REFERS_TO
+  dst: Foreign Contribution (Regulation) Act, 2010
+  evidence: deals_spa_kestrel:c14
+- area: deals
+  src: Disclosure Item 11
+  rel: REFERS_TO
+  dst: Kestrel Shiksha Foundation
+  evidence: deals_disclosure_letter:c6
+- area: deals
+  src: Red Flag RF-3
+  rel: REFERS_TO
+  dst: Kestrel Shiksha Foundation
+  evidence: deals_dd_findings_memo:c4
+- area: deals
+  src: Red Flag RF-3
+  rel: REFERS_TO
+  dst: Foreign Contribution (Regulation) Act, 2010
+  evidence: deals_dd_findings_memo:c4
+- area: deals
+  src: Red Flag RF-3
+  rel: REQUIRES
+  dst: Foundation FCRA Indemnity
+  evidence: deals_dd_findings_memo:c7
+- area: deals
+  src: Kestrel Valuation Report
+  rel: ISSUED_BY
+  dst: Ira Venkatraman
+  evidence: deals_valuation_report:c1
+- area: deals
+  src: Kestrel Valuation Report
+  rel: REFERS_TO
+  dst: Section 247 of the Companies Act, 2013
+  evidence: deals_valuation_report:c1
+- area: deals
+  src: Section 247 of the Companies Act, 2013
+  rel: PART_OF
+  dst: Companies Act, 2013
+  evidence: deals_valuation_report:c1
+- area: deals
+  src: Kestrel Valuation Report
+  rel: DEFINES
+  dst: Kestrel Fair Value per Share
+  evidence: deals_valuation_report:c5
+- area: deals
+  src: Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  rel: PART_OF
+  dst: Foreign Exchange Management Act, 1999
+  evidence: deals_fema_pricing_memo:c1
+- area: deals
+  src: Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  rel: REQUIRES
+  dst: FEMA Pricing Floor
+  evidence: deals_fema_pricing_memo:c3
+- area: deals
+  src: FEMA Pricing Floor
+  rel: REFERS_TO
+  dst: Kestrel Valuation Report
+  evidence: deals_fema_pricing_memo:c3
+- area: deals
+  src: Kestrel Fair Value per Share
+  rel: REQUIRES
+  dst: FEMA Pricing Floor
+  evidence: deals_fema_pricing_memo:c3
+- area: deals
+  src: FEMA Pricing Floor
+  rel: REQUIRES
+  dst: Minimum Aggregate Consideration
+  evidence: deals_fema_pricing_memo:c4
+- area: deals
+  src: Purchase Consideration
+  rel: APPLIES_TO
+  dst: Minimum Aggregate Consideration
+  evidence: deals_fema_pricing_memo:c4
+- area: deals
+  src: Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  rel: DEFINES
+  dst: Deferred Consideration Limit
+  evidence: deals_fema_pricing_memo:c5
+- area: deals
+  src: Deferred Consideration Limit
+  rel: APPLIES_TO
+  dst: Escrow Amount
+  evidence: deals_fema_pricing_memo:c5
+- area: deals
+  src: Deferred Consideration Limit
+  rel: APPLIES_TO
+  dst: Tax Holdback
+  evidence: deals_fema_pricing_memo:c5
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Escrow Amount
+  evidence: deals_spa_kestrel:c6
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Tax Holdback
+  evidence: deals_spa_kestrel:c7
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Purchaser Deposit
+  evidence: deals_spa_kestrel:c5
+- area: deals
+  src: Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  rel: PRESCRIBES_FORM
+  dst: Form FC-TRS
+  evidence: deals_fema_pricing_memo:c6
+- area: deals
+  src: Form FC-TRS
+  rel: HAS_DEADLINE
+  dst: FC-TRS Due Date
+  evidence: deals_fema_pricing_memo:c6
+- area: deals
+  src: Form FC-TRS
+  rel: REFERS_TO
+  dst: Reserve Bank of India
+  evidence: deals_fema_pricing_memo:c6
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Material Adverse Change
+  evidence: deals_spa_kestrel:c3
+- area: deals
+  src: Material Adverse Change
+  rel: TRIGGERS
+  dst: MAC Termination Right
+  evidence: deals_spa_kestrel:c17
+- area: deals
+  src: MAC Termination Right
+  rel: HAS_DEADLINE
+  dst: Long Stop Date
+  evidence: deals_spa_kestrel:c17
+- area: deals
+  src: Kestrel SPA
+  rel: DEFINES
+  dst: Long Stop Date
+  evidence: deals_spa_kestrel:c2
+- area: deals
+  src: Amendment Agreement No. 1
+  rel: AMENDS
+  dst: Long Stop Date
+  evidence: deals_amendment_no1:c3
+- area: deals
+  src: Red Flag RF-2
+  rel: REFERS_TO
+  dst: Chakan Consent to Operate
+  evidence: deals_dd_findings_memo:c3
+- area: deals
+  src: Chakan Consent to Operate
+  rel: ISSUED_BY
+  dst: Maharashtra Pollution Control Board
+  evidence: deals_dd_findings_memo:c3
+- area: deals
+  src: Chakan CTO Condition
+  rel: REQUIRES
+  dst: Chakan Consent to Operate
+  evidence: deals_spa_kestrel:c8
+- area: deals
+  src: Chakan CTO Condition
+  rel: PART_OF
+  dst: Kestrel SPA
+  evidence: deals_spa_kestrel:c8
+- area: deals
+  src: Amendment Agreement No. 1
+  rel: SUPERSEDES
+  dst: Chakan CTO Condition
+  evidence: deals_amendment_no1:c4
+- area: deals
+  src: Amendment Agreement No. 1
+  rel: DEFINES
+  dst: CTO Retention
+  evidence: deals_amendment_no1:c4
+- area: deals
+  src: CTO Retention
+  rel: PART_OF
+  dst: Escrow Amount
+  evidence: deals_amendment_no1:c4
+- area: deals
+  src: Chakan Consent to Operate
+  rel: HAS_DEADLINE
+  dst: Chakan CTO Renewal Deadline
+  evidence: deals_amendment_no1:c4
+- area: deals
+  src: Environmental Indemnity
+  rel: APPLIES_TO
+  dst: Kestrel Components Private Limited
+  evidence: deals_spa_kestrel:c15

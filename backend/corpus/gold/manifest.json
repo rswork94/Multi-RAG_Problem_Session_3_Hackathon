@@ -1,0 +1,32 @@
+{
+  "files": {
+    "tax/tax_cbdt_n41_2026.pdf": "7ca4af077609cb76e00f32cd0029662d943e3f67bca18d3d1b5e4c15f84bc655",
+    "tax/tax_it_rules_extract.docx": "35592ec466b0790251a1da21ba5d42616a20b769fe12eca62f2e94551a579718",
+    "tax/tax_cbdt_c14_2026.pdf": "b23a569ac470894e0cd63915cd4f3519eee64975757166063f1ff7d44d08b1cf",
+    "tax/tax_cbdt_c9_2026.pdf": "b138b3577c703b3dba0195116841df28b36d817e5c2dadd647f6f65ea58e25d3",
+    "tax/tax_tds_service_codes.json": "981c2ff250190c3e654138c603cba62fbbadfa73af70ddc5418e86b43b90818c",
+    "tax/tax_cbic_c263_2026.pdf": "ebc03d64c36c0185b825c9300e920f7355461d0165db0550f3330a91bec02ce0",
+    "tax/tax_cbic_n23_2026.pdf": "f85aae06a90e1dc24702af5f3c9c4e4bc2603ccec14eac6fd6731b98786757e4",
+    "tax/tax_trs_sop_review.docx": "89f9ccba374163cfd424d72e80d2f884b86d1bee853858a3ea8d8eb0db8c1448",
+    "grc/grc_rbi_kyc_amend_2026.pdf": "2ca8af93fb912e32729be08c6f9440ee0da46c3e4b83a0aedd48151e3e0c2970",
+    "grc/grc_rbi_enf_circ_2026.pdf": "d4e7057f1927515db75d905ae4eef56aeadaa262ba9b87fe9539d3f33bf09616",
+    "grc/grc_sebi_brsr_core_2026.pdf": "44c4322701d92d40600bbe991bf523c36888c44322fba4b6841756ecde7c5d94",
+    "grc/grc_sebi_assurer_2026.pdf": "b6d576e37d363cc65495f4e8e0b6bb1fbf024bea7a47be81c525289d8e2c46f1",
+    "grc/grc_msfb_erm_policy_2026.docx": "a68a79adcf55e115b8af5bff607fe2b86ff9fa1cd209f22e86542abfd2900ebd",
+    "grc/grc_msfb_ia_sop_2026.docx": "be44ee3d9025592210c62416f6e10d6fe319b0d9887b59a154db6dbd6e9206c2",
+    "grc/grc_msfb_control_matrix_2026.csv": "0691423e4b32d1c820e89dec8fcf8fb37667c4e071260028f0c6bc7fcef47c4f",
+    "deals/deals_spa_kestrel.pdf": "089dd3880e590eae0c7e1790e620fc011d4050d9e3d87c6727ef8298ada1aa48",
+    "deals/deals_disclosure_letter.docx": "a2434b3b12ced4a888ff64a1c555a32182590adfae1e0ed29b1c39873aaab0d8",
+    "deals/deals_amendment_no1.pdf": "6696c719b570868de465942fd876dd182b0c886582e54d2d5d5c72e37061c3cc",
+    "deals/deals_valuation_report.pdf": "0d8cad1e06a318d5ca5b831a2bd015f4e9d1f4a11d4c5778356600110ce7eb67",
+    "deals/deals_fema_pricing_memo.docx": "f7429a696d4bab284a4e7ba1ee415ccda27096ed2dfef4723b74cf151c8d57c1",
+    "deals/deals_dd_findings_memo.pdf": "e6ebddc35d9f18665f9553a11ef34960a123bccbb4caf3ef9530b15ae19d3489",
+    "deals/deals_exposure_schedule.json": "9c5cb0fc66ad9655d74c32e5c1a12707dc5b5f826f8f96ed8199452a097f6857"
+  },
+  "specs": {
+    "tax": "8a66375a7d0d6ce0d4cb4b6caaa8c5f48f39563f7ed9b822ae77e8cfc827c6b1",
+    "grc": "8b0b59b5d9ac80c12b73a91883b6fc0883dcc31192c6d1fa003823da1d6986c6",
+    "deals": "0854332ca033c6610b85d60445e16737f52334a66d20f487f17c14ece76b6a4b"
+  },
+  "version": "df11f0abfcbb"
+}

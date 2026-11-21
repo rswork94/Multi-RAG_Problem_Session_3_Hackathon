@@ -1,0 +1,91 @@
+{
+  "banner": "SYNTHETIC: benchmark only, not actual law. Fictional instruments, parties and figures.",
+  "title": "Schedule of TDS Service Codes: rates and effective dates under rule 37BF",
+  "doc_type": "Table",
+  "issuer": "CBDT",
+  "issued_date": "2026-09-22",
+  "notes": [
+    {
+      "heading": "Note 1. Basis of the Schedule",
+      "text": "This Schedule is published by the Central Board of Direct Taxes under rule 37BF of the Income-tax Rules, 2026 and has applied since 1 April 2026. Each row specifies the rate at which tax is deductible on fees reported under the service code shown, together with the reporting rule and the date from which the rate applies. Rows marked as superseded are retained so that deductors can verify deductions made for earlier periods; a superseded rate must not be applied to sums credited or paid on or after the date shown in its status column."
+    },
+    {
+      "heading": "Note 2. Revision with effect from the third quarter",
+      "text": "By order dated 22 September 2026 under rule 37BF(2), the Board revised the rate for one service code with effect from 1 October 2026; the revision is prospective, and the earlier row for that code is shown as superseded for sums credited or paid on or after that date. The descriptions in this Schedule are brief and do not by themselves settle classification disputes, which are addressed by circulars of the Board. Where a circular classifies a payment under a service code, the rate in the row for that code that is in force on the date of credit or payment shall apply."
+    }
+  ],
+  "rows": [
+    {
+      "service_code": "PS-02",
+      "description": "Professional fees: legal and accountancy services engaged through an electronic platform",
+      "reporting_rule": "Rule 31AH",
+      "rate": "7.75 per cent",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "PS-04",
+      "description": "Professional fees: medical tele-consultation engaged through an electronic platform",
+      "reporting_rule": "Rule 31AH",
+      "rate": "6.40 per cent",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "TS-05",
+      "description": "Technical fees: software implementation and configuration support",
+      "reporting_rule": "Rule 31AG",
+      "rate": "2.90 per cent",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "TS-06",
+      "description": "Technical fees: laboratory testing and instrument calibration",
+      "reporting_rule": "Rule 31AG",
+      "rate": "3.15 per cent",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "TS-07",
+      "description": "Technical fees: off-site asset-health analytics and maintenance advisories",
+      "reporting_rule": "Rule 31AG",
+      "rate": "2.65 per cent",
+      "effective_from": "2026-04-01",
+      "status": "superseded with effect from 2026-10-01"
+    },
+    {
+      "service_code": "TS-07",
+      "description": "Technical fees: off-site asset-health analytics and maintenance advisories",
+      "reporting_rule": "Rule 31AG",
+      "rate": "3.85 per cent",
+      "effective_from": "2026-10-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "TS-08",
+      "description": "Technical fees: drone survey and geospatial mapping",
+      "reporting_rule": "Rule 31AG",
+      "rate": "4.20 per cent",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "TG-01",
+      "description": "Technical fees paid by an office of the Government",
+      "reporting_rule": "Rule 31AE",
+      "rate": "2.40 per cent",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    },
+    {
+      "service_code": "NR-03",
+      "description": "Technical fees paid to a non-resident or a foreign company",
+      "reporting_rule": "Rule 31AF",
+      "rate": "11.35 per cent, or the treaty rate if lower",
+      "effective_from": "2026-04-01",
+      "status": "in force"
+    }
+  ]
+}

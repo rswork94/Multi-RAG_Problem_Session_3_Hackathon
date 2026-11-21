@@ -1,0 +1,723 @@
+clusters:
+- area: tax
+  canonical: CBDT
+  type: Authority
+  members:
+  - CBDT
+  - Central Board of Direct Taxes
+  - Revenue Board
+  planted:
+  - Revenue Board
+- area: tax
+  canonical: CBIC
+  type: Authority
+  members:
+  - CBIC
+  - Central Board of Indirect Taxes and Customs
+  - Indirect Tax Board
+  planted:
+  - Indirect Tax Board
+- area: tax
+  canonical: GST Council
+  type: Authority
+  members:
+  - GST Council
+  - Goods and Services Tax Council
+  planted: []
+- area: tax
+  canonical: CGST Act
+  type: Act
+  members:
+  - CGST Act
+  - Central Goods and Services Tax Act, 2017
+  planted: []
+- area: tax
+  canonical: CGST Rules
+  type: Regulation
+  members:
+  - CGST Rules
+  - Central Goods and Services Tax Rules, 2017
+  planted: []
+- area: tax
+  canonical: Notification No. 41/2026
+  type: Notification
+  members:
+  - Notification No. 41/2026
+  - Income-tax (Seventeenth Amendment) Rules, 2026
+  planted: []
+- area: tax
+  canonical: Form 26QF
+  type: Form
+  members:
+  - Form 26QF
+  - TechFee Return
+  planted:
+  - TechFee Return
+- area: tax
+  canonical: Service code TS-07
+  type: Concept
+  members:
+  - Service code TS-07
+  - TS-07
+  planted: []
+- area: tax
+  canonical: Service code TS-08
+  type: Concept
+  members:
+  - Service code TS-08
+  - TS-08
+  planted: []
+- area: tax
+  canonical: Input Service Distributor
+  type: Concept
+  members:
+  - Input Service Distributor
+  - ISD
+  planted: []
+- area: tax
+  canonical: Form ISD-04A
+  type: Form
+  members:
+  - Form ISD-04A
+  - Cross-Charge Reconciliation
+  planted:
+  - Cross-Charge Reconciliation
+- area: tax
+  canonical: Invoice Registration Portal
+  type: Concept
+  members:
+  - Invoice Registration Portal
+  - IRP
+  planted: []
+- area: tax
+  canonical: Invoice Reference Number
+  type: Concept
+  members:
+  - Invoice Reference Number
+  - IRN
+  planted: []
+- area: grc
+  canonical: Reserve Bank of India
+  type: Authority
+  members:
+  - Reserve Bank of India
+  - RBI
+  - Reserve Bank
+  - Central Regulator
+  planted:
+  - Central Regulator
+- area: grc
+  canonical: FIU-IND
+  type: Authority
+  members:
+  - FIU-IND
+  - Financial Intelligence Unit-India
+  - AML Reporting Desk
+  planted:
+  - AML Reporting Desk
+- area: grc
+  canonical: Securities and Exchange Board of India
+  type: Authority
+  members:
+  - Securities and Exchange Board of India
+  - SEBI
+  planted: []
+- area: grc
+  canonical: Risk Management Committee of the Board
+  type: Authority
+  members:
+  - Risk Management Committee of the Board
+  - RMCB
+  - Board Risk Forum
+  planted:
+  - Board Risk Forum
+- area: grc
+  canonical: Meridian Small Finance Bank
+  type: Party
+  members:
+  - Meridian Small Finance Bank
+  - Meridian Small Finance Bank Limited
+  - MSFB
+  planted: []
+- area: grc
+  canonical: KYC Direction 2016
+  type: MasterDirection
+  members:
+  - KYC Direction 2016
+  - Master Direction – Know Your Customer (KYC) Direction, 2016
+  - KYC Direction
+  planted: []
+- area: grc
+  canonical: KYC Amendment Directions 2026
+  type: MasterDirection
+  members:
+  - KYC Amendment Directions 2026
+  - Master Direction – Know Your Customer (KYC) (Amendment) Directions, 2026
+  - DOR.AML.REC.27/14.01.001/2026-27
+  - Revised KYC Code
+  planted:
+  - Revised KYC Code
+- area: grc
+  canonical: Enforcement Circular 2026
+  type: Circular
+  members:
+  - Enforcement Circular 2026
+  - DOR.ENF.REC.33/22.13.001/2026-27
+  - Penalty Rulebook
+  planted:
+  - Penalty Rulebook
+- area: grc
+  canonical: SEBI Circular 2026/087
+  type: Circular
+  members:
+  - SEBI Circular 2026/087
+  - SEBI/HO/CFD/CFD-PoD-2/P/CIR/2026/087
+  planted: []
+- area: grc
+  canonical: SEBI Circular 2026/112
+  type: Circular
+  members:
+  - SEBI Circular 2026/112
+  - SEBI/HO/CFD/CFD-PoD-2/P/CIR/2026/112
+  planted: []
+- area: grc
+  canonical: SEBI Circular 2025/42
+  type: Circular
+  members:
+  - SEBI Circular 2025/42
+  - SEBI/HO/CFD/CFD-PoD-2/P/CIR/2025/42
+  planted: []
+- area: grc
+  canonical: Meridian ERM Policy v4.2
+  type: Standard
+  members:
+  - Meridian ERM Policy v4.2
+  - MSFB/ERM/POL/2026-02
+  - Enterprise Risk Management Policy
+  planted: []
+- area: grc
+  canonical: IA-SOP-KYC-2026/03
+  type: Standard
+  members:
+  - IA-SOP-KYC-2026/03
+  - Internal Audit SOP
+  planted: []
+- area: grc
+  canonical: CTL-MAP-2026
+  type: Standard
+  members:
+  - CTL-MAP-2026
+  - control-to-obligation matrix
+  planted: []
+- area: grc
+  canonical: ISO 31000:2018
+  type: Standard
+  members:
+  - ISO 31000:2018
+  - ISO 31000
+  planted: []
+- area: grc
+  canonical: Paragraph 16A
+  type: Obligation
+  members:
+  - Paragraph 16A
+  - Para 16A
+  planted: []
+- area: grc
+  canonical: Paragraph 38B
+  type: Obligation
+  members:
+  - Paragraph 38B
+  - Para 38B
+  planted: []
+- area: grc
+  canonical: Paragraph 38C
+  type: Obligation
+  members:
+  - Paragraph 38C
+  - Para 38C
+  planted: []
+- area: grc
+  canonical: Paragraph 38D
+  type: Obligation
+  members:
+  - Paragraph 38D
+  - Para 38D
+  planted: []
+- area: grc
+  canonical: Paragraph 41A
+  type: Obligation
+  members:
+  - Paragraph 41A
+  - Para 41A
+  planted: []
+- area: grc
+  canonical: Paragraph 44D
+  type: Obligation
+  members:
+  - Paragraph 44D
+  - Para 44D
+  planted: []
+- area: grc
+  canonical: Paragraph 52F
+  type: Obligation
+  members:
+  - Paragraph 52F
+  - Para 52F
+  planted: []
+- area: grc
+  canonical: Paragraph 52G
+  type: Obligation
+  members:
+  - Paragraph 52G
+  - Para 52G
+  planted: []
+- area: grc
+  canonical: High-risk category
+  type: Concept
+  members:
+  - High-risk category
+  - high risk
+  - high risk customers
+  planted: []
+- area: grc
+  canonical: CRG-4
+  type: Concept
+  members:
+  - CRG-4
+  - Customer Risk Grade 4
+  planted: []
+- area: grc
+  canonical: Politically exposed person
+  type: Concept
+  members:
+  - Politically exposed person
+  - PEP
+  - politically exposed persons
+  planted: []
+- area: grc
+  canonical: Suspicious Transaction Report
+  type: Form
+  members:
+  - Suspicious Transaction Report
+  - STR
+  planted: []
+- area: grc
+  canonical: Aggregated Small-Value Alert Report
+  type: Form
+  members:
+  - Aggregated Small-Value Alert Report
+  - ASVAR
+  planted: []
+- area: grc
+  canonical: 18-month periodicity
+  type: Deadline
+  members:
+  - 18-month periodicity
+  - at least once in every 18 months
+  planted: []
+- area: grc
+  canonical: Two-year periodicity
+  type: Deadline
+  members:
+  - Two-year periodicity
+  - at least once in every two years
+  planted: []
+- area: grc
+  canonical: Cohort-1 entities
+  type: Threshold
+  members:
+  - Cohort-1 entities
+  - Cohort-1
+  planted: []
+- area: grc
+  canonical: Cohort-2 entities
+  type: Threshold
+  members:
+  - Cohort-2 entities
+  - Cohort-2
+  planted: []
+- area: grc
+  canonical: Cohort-3 entities
+  type: Threshold
+  members:
+  - Cohort-3 entities
+  - Cohort-3
+  planted: []
+- area: grc
+  canonical: Category S1 assurance provider
+  type: Concept
+  members:
+  - Category S1 assurance provider
+  - Category S1
+  planted: []
+- area: grc
+  canonical: Category S2 assurance provider
+  type: Concept
+  members:
+  - Category S2 assurance provider
+  - Category S2
+  planted: []
+- area: grc
+  canonical: Enforcement Head E-05
+  type: Penalty
+  members:
+  - Enforcement Head E-05
+  - E-05
+  planted: []
+- area: grc
+  canonical: Enforcement Head E-07
+  type: Penalty
+  members:
+  - Enforcement Head E-07
+  - E-07
+  planted: []
+- area: grc
+  canonical: Enforcement Head E-09
+  type: Penalty
+  members:
+  - Enforcement Head E-09
+  - E-09
+  planted: []
+- area: grc
+  canonical: Enforcement Head E-11
+  type: Penalty
+  members:
+  - Enforcement Head E-11
+  - E-11
+  planted: []
+- area: grc
+  canonical: Enforcement Head E-14
+  type: Penalty
+  members:
+  - Enforcement Head E-14
+  - E-14
+  planted: []
+- area: grc
+  canonical: Enforcement Head E-16
+  type: Penalty
+  members:
+  - Enforcement Head E-16
+  - E-16
+  planted: []
+- area: grc
+  canonical: C-KYC-02
+  type: Control
+  members:
+  - C-KYC-02
+  - Risk-Grade Review Scheduler
+  planted: []
+- area: grc
+  canonical: C-KYC-05
+  type: Control
+  members:
+  - C-KYC-05
+  - Freeze Pre-Check
+  planted: []
+- area: grc
+  canonical: C-KYC-07
+  type: Control
+  members:
+  - C-KYC-07
+  - Re-KYC Due-Date Sentinel
+  planted: []
+- area: grc
+  canonical: C-KYC-08
+  type: Control
+  members:
+  - C-KYC-08
+  - Re-KYC Ageing Tracker
+  planted: []
+- area: grc
+  canonical: C-KYC-11
+  type: Control
+  members:
+  - C-KYC-11
+  - Ownership Look-Through Validator
+  planted: []
+- area: grc
+  canonical: C-EDD-03
+  type: Control
+  members:
+  - C-EDD-03
+  - Activation Hold Gate
+  planted: []
+- area: grc
+  canonical: C-AML-12
+  type: Control
+  members:
+  - C-AML-12
+  - STR Clock Monitor
+  planted: []
+- area: grc
+  canonical: C-AML-15
+  type: Control
+  members:
+  - C-AML-15
+  - Quarterly Alert Return Checklist
+  planted: []
+- area: grc
+  canonical: C-ESG-04
+  type: Control
+  members:
+  - C-ESG-04
+  - Assurer Eligibility Screen
+  planted: []
+- area: grc
+  canonical: C-ESG-06
+  type: Control
+  members:
+  - C-ESG-06
+  - BRSR Core Data Lineage Review
+  planted: []
+- area: grc
+  canonical: C-ERM-01
+  type: Control
+  members:
+  - C-ERM-01
+  - Heat-Map Refresh and RCSA Sign-off
+  planted: []
+- area: deals
+  canonical: Kestrel Components Private Limited
+  type: Party
+  members:
+  - Kestrel Components Private Limited
+  - Kestrel
+  planted: []
+- area: deals
+  canonical: Halden Holdings LLP
+  type: Party
+  members:
+  - Halden Holdings LLP
+  - Seller
+  - Founder Vehicle
+  planted:
+  - Founder Vehicle
+- area: deals
+  canonical: Orion Capital Partners (Mauritius) Ltd
+  type: Party
+  members:
+  - Orion Capital Partners (Mauritius) Ltd
+  - Purchaser
+  - Mauritian Acquirer
+  planted:
+  - Mauritian Acquirer
+- area: deals
+  canonical: Kestrel Shiksha Foundation
+  type: Party
+  members:
+  - Kestrel Shiksha Foundation
+  - Foundation
+  planted: []
+- area: deals
+  canonical: Maharashtra Pollution Control Board
+  type: Authority
+  members:
+  - Maharashtra Pollution Control Board
+  - MPCB
+  planted: []
+- area: deals
+  canonical: Reserve Bank of India
+  type: Authority
+  members:
+  - Reserve Bank of India
+  - RBI
+  planted: []
+- area: deals
+  canonical: Foreign Exchange Management Act, 1999
+  type: Act
+  members:
+  - Foreign Exchange Management Act, 1999
+  - FEMA
+  planted: []
+- area: deals
+  canonical: Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  type: Rule
+  members:
+  - Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  - NDI Rules
+  planted: []
+- area: deals
+  canonical: Foreign Contribution (Regulation) Act, 2010
+  type: Act
+  members:
+  - Foreign Contribution (Regulation) Act, 2010
+  - FCRA
+  planted: []
+- area: deals
+  canonical: Kestrel SPA
+  type: Agreement
+  members:
+  - Kestrel SPA
+  - Share Purchase Agreement
+  - Principal Agreement
+  planted: []
+- area: deals
+  canonical: Amendment Agreement No. 1
+  type: Agreement
+  members:
+  - Amendment Agreement No. 1
+  - Amendment No. 1
+  planted: []
+- area: deals
+  canonical: Kestrel Disclosure Letter
+  type: Agreement
+  members:
+  - Kestrel Disclosure Letter
+  - Disclosure Letter
+  planted: []
+- area: deals
+  canonical: Kestrel Valuation Report
+  type: Concept
+  members:
+  - Kestrel Valuation Report
+  - Valuation Report
+  planted: []
+- area: deals
+  canonical: Signing Exposure Schedule
+  type: Concept
+  members:
+  - Signing Exposure Schedule
+  - exposure schedule
+  planted: []
+- area: deals
+  canonical: DD Findings Memo
+  type: Concept
+  members:
+  - DD Findings Memo
+  - due diligence findings
+  planted: []
+- area: deals
+  canonical: Specific Tax Indemnity
+  type: Obligation
+  members:
+  - Specific Tax Indemnity
+  - Clause 10.2
+  planted: []
+- area: deals
+  canonical: General Cap
+  type: Threshold
+  members:
+  - General Cap
+  - Clause 9.4(a)
+  planted: []
+- area: deals
+  canonical: De Minimis Threshold
+  type: Threshold
+  members:
+  - De Minimis Threshold
+  - de minimis
+  planted: []
+- area: deals
+  canonical: Aggregate Claims Threshold
+  type: Threshold
+  members:
+  - Aggregate Claims Threshold
+  - basket
+  planted: []
+- area: deals
+  canonical: Foundation FCRA Indemnity
+  type: Obligation
+  members:
+  - Foundation FCRA Indemnity
+  - Clause 10.3
+  planted: []
+- area: deals
+  canonical: Environmental Indemnity
+  type: Obligation
+  members:
+  - Environmental Indemnity
+  - Clause 10.4
+  planted: []
+- area: deals
+  canonical: Purchaser Liability Cap
+  type: Threshold
+  members:
+  - Purchaser Liability Cap
+  - Clause 15.4
+  planted: []
+- area: deals
+  canonical: Non-compete Covenant
+  type: Obligation
+  members:
+  - Non-compete Covenant
+  - Clause 12.1
+  planted: []
+- area: deals
+  canonical: Material Adverse Change
+  type: Concept
+  members:
+  - Material Adverse Change
+  - MAC
+  planted: []
+- area: deals
+  canonical: MAC Termination Right
+  type: Clause
+  members:
+  - MAC Termination Right
+  - Clause 14.1(b)
+  planted: []
+- area: deals
+  canonical: Long Stop Date
+  type: Deadline
+  members:
+  - Long Stop Date
+  - long-stop date
+  planted: []
+- area: deals
+  canonical: Kestrel Fair Value per Share
+  type: Threshold
+  members:
+  - Kestrel Fair Value per Share
+  - fair value of each equity share
+  planted: []
+- area: deals
+  canonical: FEMA Pricing Floor
+  type: Threshold
+  members:
+  - FEMA Pricing Floor
+  - FEMA Floor
+  planted: []
+- area: deals
+  canonical: Form FC-TRS
+  type: Form
+  members:
+  - Form FC-TRS
+  - FC-TRS
+  planted: []
+- area: deals
+  canonical: Chakan Consent to Operate
+  type: Concept
+  members:
+  - Chakan Consent to Operate
+  - consent to operate
+  - CTO
+  planted: []
+- area: deals
+  canonical: Chakan CTO Condition
+  type: Clause
+  members:
+  - Chakan CTO Condition
+  - Clause 7.1(e)
+  planted: []
+- area: deals
+  canonical: Red Flag RF-1
+  type: Concept
+  members:
+  - Red Flag RF-1
+  - RF-1
+  planted: []
+- area: deals
+  canonical: Red Flag RF-2
+  type: Concept
+  members:
+  - Red Flag RF-2
+  - RF-2
+  planted: []
+- area: deals
+  canonical: Red Flag RF-3
+  type: Concept
+  members:
+  - Red Flag RF-3
+  - RF-3
+  planted: []

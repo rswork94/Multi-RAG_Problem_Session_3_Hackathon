@@ -1,0 +1,1039 @@
+questions:
+- id: tax_k1
+  category: keyword
+  question: Under CBDT Circular No. 14/2026, what is the due date for furnishing the
+    quarterly statement in Form 27QF?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Circular No. 14/2026 requires the Form 27QF statement to be furnished on
+      or before the 15th day of the second month following the quarter.
+    anchors:
+    - 15th day of the second month following the quarter
+    evidence: tax_cbdt_c14_2026:c5
+    source: tax_cbdt_c14_2026.pdf
+  gold_entities:
+  - Circular No. 14/2026
+  - Form 27QF
+  - Form 27QF due date
+  must_include:
+  - '15'
+  - second month
+  must_not: []
+  area: tax
+- id: tax_k2
+  category: keyword
+  question: From what date do the Income-tax (Seventeenth Amendment) Rules, 2026 come
+    into force, and do they apply prospectively or retrospectively?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: The Income-tax (Seventeenth Amendment) Rules, 2026 (Notification No. 41/2026)
+      come into force on 1 October 2026 and are prospective, applying only to sums
+      credited or paid on or after that date.
+    anchors:
+    - 1st day of October, 2026
+    evidence: tax_cbdt_n41_2026:c1
+    source: tax_cbdt_n41_2026.pdf
+  gold_entities:
+  - Notification No. 41/2026
+  must_include:
+  - October
+  - prospective
+  must_not: []
+  area: tax
+- id: tax_k3
+  category: keyword
+  question: What rate of tax deduction does the Schedule of TDS Service Codes specify
+    for service code TS-08, drone survey and geospatial mapping?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Service code TS-08 (drone survey and geospatial mapping) carries a rate
+      of 4.20 per cent with effect from 1 April 2026.
+    anchors:
+    - 4.20 per cent
+    evidence: tax_tds_service_codes:row6
+    source: tax_tds_service_codes.json
+  gold_entities:
+  - Schedule of TDS Service Codes
+  - Service code TS-08
+  - TS-08 rate of 4.20 per cent
+  must_include:
+  - '4.2'
+  must_not: []
+  area: tax
+- id: tax_k4
+  category: keyword
+  question: Under CBIC Circular No. 263/11/2026-GST, what is the outer time limit
+    for an Input Service Distributor to distribute credit that was not distributed
+    in the month the invoice was received, and from when does that limit apply?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Credit may be distributed in a later month but not later than 91 days from
+      the invoice date; the relaxation is prospective from 1 December 2026 for invoices
+      received on or after that date.
+    anchors:
+    - later than 91 days from the date of the invoice
+    - 1st day of December, 2026
+    evidence: tax_cbic_c263_2026:c3
+    source: tax_cbic_c263_2026.pdf
+  gold_entities:
+  - Circular No. 263/11/2026-GST
+  - Input Service Distributor
+  - ISD 91-day distribution limit
+  must_include:
+  - '91'
+  - December
+  must_not: []
+  area: tax
+- id: tax_m1
+  category: multihop
+  question: Notification No. 41/2026 amended one rule of the Income-tax Rules, 2026.
+    Which statement does that rule prescribe, and by what calendar date must it be
+    furnished for the quarter ending 31 December 2026?
+  hops: 3
+  bridge_entities:
+  - Rule 31AG
+  - Form 26QF
+  gold_facts:
+  - fact: Notification No. 41/2026 amends rule 31AG of the Income-tax Rules, 2026,
+      raising its technical-fee limit to forty-seven thousand five hundred rupees.
+    anchors:
+    - forty-seven thousand five hundred rupees
+    evidence: tax_cbdt_n41_2026:c2
+    source: tax_cbdt_n41_2026.pdf
+  - fact: Rule 31AG requires the quarterly statement to be furnished in Form 26QF.
+    anchors:
+    - furnished in Form 26QF
+    evidence: tax_it_rules_extract:c2
+    source: tax_it_rules_extract.docx
+  - fact: Circular No. 14/2026 requires Form 26QF to be furnished by the 19th day
+      following the end of the June, September and December quarters, i.e. by 19 January
+      2027 for the December 2026 quarter.
+    anchors:
+    - 19th day following the end of the quarter
+    evidence: tax_cbdt_c14_2026:c2
+    source: tax_cbdt_c14_2026.pdf
+  gold_entities:
+  - Notification No. 41/2026
+  - Rule 31AG
+  - Form 26QF
+  - Circular No. 14/2026
+  - Form 26QF due date
+  must_include:
+  - 26QF
+  - '19'
+  - January
+  must_not:
+  - 22 January
+  - 24 January
+  - 31 January
+  area: tax
+- id: tax_m2
+  category: multihop
+  question: What rate of tax deduction applies to a payment made in November 2026
+    that falls within the clarification issued in CBDT Circular No. 9/2026?
+  hops: 2
+  bridge_entities:
+  - Service code TS-07
+  gold_facts:
+  - fact: Circular No. 9/2026 classifies fees for remote plant-monitoring and predictive-maintenance
+      recommendations under service code TS-07.
+    anchors:
+    - classifiable under service code TS-07
+    evidence: tax_cbdt_c9_2026:c2
+    source: tax_cbdt_c9_2026.pdf
+  - fact: The Schedule of TDS Service Codes prescribes 3.85 per cent for TS-07 with
+      effect from 1 October 2026; the earlier TS-07 rate is superseded from that date.
+    anchors:
+    - 3.85 per cent
+    evidence: tax_tds_service_codes:row5
+    source: tax_tds_service_codes.json
+  gold_entities:
+  - Circular No. 9/2026
+  - Service code TS-07
+  - TS-07 rate of 3.85 per cent
+  - Schedule of TDS Service Codes
+  must_include:
+  - '3.85'
+  must_not:
+  - '2.65'
+  area: tax
+- id: tax_m3
+  category: multihop
+  question: Under CBIC Circular No. 263/11/2026-GST, from February 2027 what time
+    limit applies to an Input Service Distributor for each ISD invoice it issues?
+  hops: 2
+  bridge_entities:
+  - Notification No. 23/2026-Central Tax
+  gold_facts:
+  - fact: Circular No. 263/11/2026-GST requires ISD invoices to be reported within
+      the time limit that applies to invoices under paragraph 3 of Notification No.
+      23/2026-Central Tax.
+    anchors:
+    - paragraph 3 of Notification No. 23/2026-Central Tax
+    evidence: tax_cbic_c263_2026:c6
+    source: tax_cbic_c263_2026.pdf
+  - fact: Paragraph 3 of Notification No. 23/2026-Central Tax requires invoices to
+      be reported to the Invoice Registration Portal within 27 days from the invoice
+      date.
+    anchors:
+    - within 27 days from the date of the invoice
+    evidence: tax_cbic_n23_2026:c3
+    source: tax_cbic_n23_2026.pdf
+  gold_entities:
+  - Circular No. 263/11/2026-GST
+  - Notification No. 23/2026-Central Tax
+  - 27-day IRP reporting window
+  - Input Service Distributor
+  must_include:
+  - '27'
+  must_not:
+  - 91 days
+  - 45 days
+  - 37 days
+  area: tax
+- id: tax_m4
+  category: multihop
+  question: Rule 31AH of the Income-tax Rules, 2026 prescribes a quarterly statement
+    of tax deducted. By what day after the quarter ends must that statement be furnished?
+  hops: 2
+  bridge_entities:
+  - Form 26QH
+  gold_facts:
+  - fact: Rule 31AH requires the quarterly statement of tax deducted on platform-mediated
+      professional fees to be furnished in Form 26QH.
+    anchors:
+    - furnished in Form 26QH
+    evidence: tax_it_rules_extract:c3
+    source: tax_it_rules_extract.docx
+  - fact: Circular No. 14/2026 requires Form 26QH to be furnished by the 22nd day
+      following the end of the quarter, including the March quarter.
+    anchors:
+    - 22nd day following the end of the quarter
+    evidence: tax_cbdt_c14_2026:c4
+    source: tax_cbdt_c14_2026.pdf
+  gold_entities:
+  - Rule 31AH
+  - Form 26QH
+  - Circular No. 14/2026
+  - Form 26QH due date
+  must_include:
+  - '22'
+  must_not:
+  - 19th day
+  - 24th day
+  - 31st day
+  area: tax
+- id: tax_a1
+  category: vocab_alias
+  question: When is the Cross-Charge Reconciliation due each quarter, and which distributors
+    are obliged to file it?
+  hops: 1
+  bridge_entities: []
+  gold_facts:
+  - fact: Form ISD-04A must be furnished by an Input Service Distributor that distributes
+      more than ₹4.80 crore of credit in a quarter, on or before the 17th day of the
+      month succeeding the quarter.
+    anchors:
+    - ₹4.80 crore
+    - 17th day of the month succeeding the quarter
+    evidence: tax_cbic_c263_2026:c4
+    source: tax_cbic_c263_2026.pdf
+  gold_entities:
+  - Form ISD-04A
+  - Circular No. 263/11/2026-GST
+  - Form ISD-04A due date
+  - ISD-04A filing limit of ₹4.80 crore
+  - Input Service Distributor
+  must_include:
+  - '17'
+  - '4.8'
+  must_not: []
+  area: tax
+- id: tax_a2
+  category: vocab_alias
+  question: Which retrospective clarification has the Revenue Board issued in 2026,
+    and from what date does it apply?
+  hops: 1
+  bridge_entities: []
+  gold_facts:
+  - fact: CBDT Circular No. 9/2026 is a retrospective clarification classifying remote
+      plant-monitoring fees as fees for technical services under TS-07, applying since
+      inception from 1 April 2026.
+    anchors:
+    - 1st day of April, 2026
+    evidence: tax_cbdt_c9_2026:c2
+    source: tax_cbdt_c9_2026.pdf
+  gold_entities:
+  - CBDT
+  - Circular No. 9/2026
+  - Service code TS-07
+  must_include:
+  - 9/2026
+  - April
+  must_not:
+  - 263/11
+  - April 2025
+  - April, 2025
+  area: tax
+- id: tax_p1
+  category: vocab_paraphrase
+  question: From the start of 2027, how big do a business's yearly sales have to be
+    before every bill it raises for business customers must first carry an official
+    code issued by the government's online system?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: From 1 January 2027, registered persons whose aggregate turnover in any
+      preceding financial year exceeds ₹3.65 crore must issue invoices after obtaining
+      an Invoice Reference Number from the Invoice Registration Portal.
+    anchors:
+    - ₹3.65 crore
+    - 1st January, 2027
+    evidence: tax_cbic_n23_2026:c1
+    source: tax_cbic_n23_2026.pdf
+  gold_entities:
+  - Notification No. 23/2026-Central Tax
+  - E-invoicing threshold of ₹3.65 crore
+  - Invoice Registration Portal
+  - Invoice Reference Number
+  must_include:
+  - '3.65'
+  must_not:
+  - '4.25'
+  area: tax
+- id: tax_p2
+  category: vocab_paraphrase
+  question: A company's head office buys shared services that its branches in several
+    states use, but none of the branches made any sales during that time. On what
+    basis should the head office pass on the tax it paid on those services to the
+    branches, and does that approach also hold for past months?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Where no recipient unit has turnover in the relevant period, the Input Service
+      Distributor apportions credit in the ratio of each unit's gross block of fixed
+      assets; the clarification is retrospective and applies since 1 April 2025.
+    anchors:
+    - gross block of fixed assets
+    - 1st day of April, 2025
+    evidence: tax_cbic_c263_2026:c2
+    source: tax_cbic_c263_2026.pdf
+  gold_entities:
+  - Circular No. 263/11/2026-GST
+  - Input Service Distributor
+  - Fixed-asset apportionment for nil-turnover units
+  must_include:
+  - fixed assets
+  - '2025'
+  must_not: []
+  area: tax
+- id: grc_k1
+  category: keyword
+  question: Under Paragraph 44D of the KYC (Amendment) Directions, 2026, within how
+    many days must a regulated entity update its beneficial ownership records after
+    becoming aware of a change in the ownership or control of a customer?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Paragraph 44D requires beneficial ownership records to be updated within
+      34 days of the regulated entity becoming aware of a change in ownership or control;
+      non-compliance is a lapse under Enforcement Head E-07.
+    anchors:
+    - within 34 days of becoming aware
+    evidence: grc_rbi_kyc_amend_2026:c7
+    source: grc_rbi_kyc_amend_2026.pdf
+  gold_entities:
+  - Paragraph 44D
+  - KYC Amendment Directions 2026
+  - Beneficial owner
+  must_include:
+  - '34'
+  must_not: []
+  area: grc
+- id: grc_k2
+  category: keyword
+  question: Under SEBI circular SEBI/HO/CFD/CFD-PoD-2/P/CIR/2026/087, what fine per
+    day of delay does the stock exchange levy when a listed entity fails to submit
+    its BRSR Core reasonable assurance report on time?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: The stock exchange levies a fine of ₹8,500 per day of delay until submission;
+      a repeat default within 12 months doubles the daily fine, and a default beyond
+      90 days leads to freezing of promoter shareholding and referral to SEBI.
+    anchors:
+    - ₹8,500 per day
+    evidence: grc_sebi_brsr_core_2026:c6
+    source: grc_sebi_brsr_core_2026.pdf
+  gold_entities:
+  - SEBI Circular 2026/087
+  - BRSR assurance delay fine
+  - BRSR Core
+  must_include:
+  - 8,500
+  must_not: []
+  area: grc
+- id: grc_k3
+  category: keyword
+  question: Under Meridian Small Finance Bank's Enterprise Risk Management Policy,
+    what gross operational loss amount triggers reporting to the Risk Management Committee
+    of the Board, and within how many working days must it be reported?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Any operational loss event with a gross loss of ₹37,50,000 or more must
+      be reported by the Chief Risk Officer to the RMCB within 3 working days of identification,
+      with a root-cause analysis.
+    anchors:
+    - ₹37,50,000
+    evidence: grc_msfb_erm_policy_2026:c4
+    source: grc_msfb_erm_policy_2026.docx
+  gold_entities:
+  - Meridian ERM Policy v4.2
+  - Risk Management Committee of the Board
+  - Operational loss escalation threshold
+  must_include:
+  - 37,50,000
+  must_not: []
+  area: grc
+- id: grc_k4
+  category: keyword
+  question: Under Internal Audit SOP IA-SOP-KYC-2026/03, what minimum sample size
+    must the audit team use when testing a control that operates daily?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: A control that operates daily must be tested with a minimum sample of 40
+      occurrences, extended by an equal number of items if one exception is found.
+    anchors:
+    - minimum sample of 40 occurrences
+    evidence: grc_msfb_ia_sop_2026:c3
+    source: grc_msfb_ia_sop_2026.docx
+  gold_entities:
+  - IA-SOP-KYC-2026/03
+  must_include:
+  - '40'
+  must_not: []
+  area: grc
+- id: grc_m1
+  category: multihop
+  question: What monetary penalty can the Reserve Bank of India impose for each breach
+    of the regulatory requirement that Meridian Small Finance Bank's control C-KYC-07
+    is designed to monitor?
+  hops: 3
+  bridge_entities:
+  - Paragraph 38B
+  - High-risk category
+  - Enforcement Head E-11
+  gold_facts:
+  - fact: Control C-KYC-07 (Re-KYC Due-Date Sentinel) is mapped to Paragraph 38B of
+      the KYC Direction.
+    anchors:
+    - Re-KYC Due-Date Sentinel
+    evidence: grc_msfb_control_matrix_2026:row2
+    source: grc_msfb_control_matrix_2026.csv
+  - fact: Paragraph 38B requires periodic updation of high risk customers at least
+      once in every 18 months, and non-compliance is a lapse under Enforcement Head
+      E-11.
+    anchors:
+    - once in every 18 months
+    evidence: grc_rbi_kyc_amend_2026:c3
+    source: grc_rbi_kyc_amend_2026.pdf
+  - fact: Enforcement Head E-11 carries a penalty of ₹2,40,000 per account, plus ₹4,500
+      per day if the lapse continues beyond 60 days from the supervisory letter.
+    anchors:
+    - ₹2,40,000
+    - ₹4,500
+    evidence: grc_rbi_enf_circ_2026:c5
+    source: grc_rbi_enf_circ_2026.pdf
+  gold_entities:
+  - C-KYC-07
+  - Paragraph 38B
+  - High-risk category
+  - Enforcement Head E-11
+  - Enforcement Circular 2026
+  - Meridian Small Finance Bank
+  - Reserve Bank of India
+  must_include:
+  - 2,40,000
+  must_not:
+  - 65,000
+  - no penalty applies
+  area: grc
+- id: grc_m2
+  category: multihop
+  question: Meridian Small Finance Bank grades a customer CRG-4. For updations falling
+    due after July 1, 2026, how often must that customer's KYC be periodically updated,
+    and what interval did this replace?
+  hops: 2
+  bridge_entities:
+  - High-risk category
+  - Paragraph 38B
+  gold_facts:
+  - fact: Under the Bank's ERM Policy, CRG-4 and CRG-5 are treated as high risk for
+      all purposes of the KYC Direction.
+    anchors:
+    - treated as high risk
+    - ₹18,60,000
+    evidence: grc_msfb_erm_policy_2026:c5
+    source: grc_msfb_erm_policy_2026.docx
+  - fact: From July 1, 2026, Paragraph 38B requires high risk customers to be updated
+      at least once in every 18 months, substituting the earlier requirement of at
+      least once in every two years.
+    anchors:
+    - once in every 18 months
+    evidence: grc_rbi_kyc_amend_2026:c3
+    source: grc_rbi_kyc_amend_2026.pdf
+  gold_entities:
+  - CRG-4
+  - High-risk category
+  - Paragraph 38B
+  - 18-month periodicity
+  - Two-year periodicity
+  - Meridian Small Finance Bank
+  - KYC Amendment Directions 2026
+  must_include:
+  - 18 months
+  must_not: []
+  area: grc
+- id: grc_m3
+  category: multihop
+  question: A listed company ranked 410th by market capitalisation as on March 31,
+    2027 is covered by SEBI circular SEBI/HO/CFD/CFD-PoD-2/P/CIR/2026/087. From which
+    financial year must it obtain reasonable assurance on its BRSR Core, and what
+    eligibility criteria must its assurance provider meet?
+  hops: 2
+  bridge_entities:
+  - Cohort-2 entities
+  - Category S2 assurance provider
+  gold_facts:
+  - fact: Listed entities ranked 251 to 500 by market capitalisation (Cohort-2) must
+      obtain reasonable assurance on BRSR Core from FY 2027-28, with the cohort fixed
+      by market capitalisation as on March 31 of the preceding year.
+    anchors:
+    - ranked 251 to 500
+    evidence: grc_sebi_brsr_core_2026:c2
+    source: grc_sebi_brsr_core_2026.pdf
+  - fact: 'A Cohort-2 entity must appoint a Category S2 (or S1) provider: valid peer
+      review certificate or accreditation, at least three BRSR Core assurance engagements
+      in the preceding two years, enrolment in Register Part B, a greenhouse gas specialist
+      from an ISO 14065 accredited body, and an engagement partner with at least five
+      years'' experience.'
+    anchors:
+    - Register Part B
+    - ISO 14065
+    evidence: grc_sebi_assurer_2026:c3
+    source: grc_sebi_assurer_2026.pdf
+  gold_entities:
+  - SEBI Circular 2026/087
+  - SEBI Circular 2026/112
+  - Cohort-2 entities
+  - Category S2 assurance provider
+  - BRSR Core
+  - Reasonable assurance
+  must_include:
+  - 2027-28
+  - Part B
+  must_not: []
+  area: grc
+- id: grc_m4
+  category: multihop
+  question: Which control in Meridian Small Finance Bank's control matrix is meant
+    to prevent the kind of lapse for which the RBI enforcement circular can bar a
+    bank from onboarding new high risk customers for up to 180 days, and who owns
+    that control?
+  hops: 3
+  bridge_entities:
+  - Enforcement Head E-16
+  - Paragraph 41A
+  - Politically exposed person
+  gold_facts:
+  - fact: Enforcement Head E-16 covers relationships with politically exposed persons
+      established without designated senior management approval; it carries ₹7,85,000
+      per relationship and, where lapses exceed five relationships, a bar on onboarding
+      new high risk customers for up to 180 days.
+    anchors:
+    - ₹7,85,000
+    evidence: grc_rbi_enf_circ_2026:c7
+    source: grc_rbi_enf_circ_2026.pdf
+  - fact: Paragraph 41A requires approval by a functionary not below the rank of General
+      Manager before activating a politically exposed person relationship, and non-compliance
+      is a lapse under Enforcement Head E-16.
+    anchors:
+    - not below the rank of General Manager
+    evidence: grc_rbi_kyc_amend_2026:c6
+    source: grc_rbi_kyc_amend_2026.pdf
+  - fact: Control C-EDD-03 (Activation Hold Gate, GM-level sign-off) is mapped to
+      Paragraph 41A and owned by the Head – Financial Crime Compliance, operating
+      per occurrence.
+    anchors:
+    - Activation Hold Gate
+    evidence: grc_msfb_control_matrix_2026:row5
+    source: grc_msfb_control_matrix_2026.csv
+  gold_entities:
+  - Enforcement Head E-16
+  - Paragraph 41A
+  - Politically exposed person
+  - C-EDD-03
+  - Enforcement Circular 2026
+  - Meridian Small Finance Bank
+  must_include:
+  - C-EDD-03
+  - Financial Crime Compliance
+  must_not: []
+  area: grc
+- id: grc_a1
+  category: vocab_alias
+  question: What quarterly report must a bank now file with the AML Reporting Desk
+    under the 2026 KYC changes, and by which day after the quarter closes is it due?
+  hops: 1
+  bridge_entities: []
+  gold_facts:
+  - fact: From the quarter ending September 30, 2026, an Aggregated Small-Value Alert
+      Report must be furnished to FIU-IND through FINnet by the 21st day of the month
+      following the close of the quarter.
+    anchors:
+    - Aggregated Small-Value Alert Report
+    - 21st day of the month
+    evidence: grc_rbi_kyc_amend_2026:c9
+    source: grc_rbi_kyc_amend_2026.pdf
+  gold_entities:
+  - FIU-IND
+  - Paragraph 52G
+  - Aggregated Small-Value Alert Report
+  - ASVAR filing deadline
+  - KYC Amendment Directions 2026
+  must_include:
+  - 21st
+  must_not:
+  - 15th
+  area: grc
+- id: grc_a2
+  category: vocab_alias
+  question: By what factor does the Central Regulator scale up a penalty when the
+    same kind of lapse is repeated, and within what period must the repeat fall for
+    this to apply?
+  hops: 1
+  bridge_entities: []
+  gold_facts:
+  - fact: A lapse under the same Enforcement Head within 24 months of a penalty order
+      under that head increases the penalty to 1.5 times the specified amount.
+    anchors:
+    - 1.5 times
+    evidence: grc_rbi_enf_circ_2026:c8
+    source: grc_rbi_enf_circ_2026.pdf
+  gold_entities:
+  - Reserve Bank of India
+  - Repeat lapse multiplier
+  - Enforcement Circular 2026
+  must_include:
+  - '1.5'
+  - 24 months
+  must_not:
+  - doubles
+  area: grc
+- id: grc_p1
+  category: vocab_paraphrase
+  question: From which year do the country's biggest stock-market companies need an
+    outside firm to give the strongest level of sign-off on their headline environmental
+    and social numbers?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Cohort-1, the top 250 listed entities by market capitalisation, must obtain
+      reasonable assurance on BRSR Core from FY 2026-27.
+    anchors:
+    - top 250 listed entities
+    evidence: grc_sebi_brsr_core_2026:c2
+    source: grc_sebi_brsr_core_2026.pdf
+  gold_entities:
+  - Cohort-1 entities
+  - Reasonable assurance
+  - BRSR Core
+  - SEBI Circular 2026/087
+  must_include:
+  - 2026-27
+  must_not: []
+  area: grc
+- id: grc_p2
+  category: vocab_paraphrase
+  question: Before a bank may block withdrawals from someone's savings because they
+    have not refreshed their identity paperwork in time, how many heads-ups must it
+    send beforehand, and how long after the deadline must it wait?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: The regulated entity must send three advance intimations before the due
+      date (at least one by letter) and three reminders after it, and may not impose
+      partial freezing earlier than 105 days after the due date of updation.
+    anchors:
+    - three advance intimations
+    - 105 days
+    evidence: grc_rbi_kyc_amend_2026:c5
+    source: grc_rbi_kyc_amend_2026.pdf
+  gold_entities:
+  - Paragraph 38D
+  - KYC Amendment Directions 2026
+  must_include:
+  - '105'
+  must_not: []
+  area: grc
+- id: deals_k1
+  category: keyword
+  question: Under Clause 9.4(c) of the Kestrel SPA, what is the de minimis amount
+    below which an individual warranty claim against the Seller is disregarded?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Individual Warranty Claims, or related series of claims, with Losses below
+      ₹42.50 lakh are disregarded under the de minimis in Clause 9.4(c).
+    anchors:
+    - ₹42.50 lakh
+    evidence: deals_spa_kestrel:c11
+    source: deals_spa_kestrel.pdf
+  gold_entities:
+  - Kestrel SPA
+  - De Minimis Threshold
+  - Halden Holdings LLP
+  must_include:
+  - 42.50 lakh
+  must_not: []
+  area: deals
+- id: deals_k2
+  category: keyword
+  question: What is the Escrow Amount withheld at Completion under Clause 4.2 of the
+    Kestrel SPA, and on which dates is it released to the Seller?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: The Escrow Amount is ₹55.56 crore held with Varenya Bank Limited; ₹27.78
+      crore is released on 14 April 2027 and the balance with interest on 29 September
+      2027, less amounts retained for notified claims.
+    anchors:
+    - ₹55.56 crore
+    - 14 April 2027
+    - 29 September 2027
+    evidence: deals_spa_kestrel:c6
+    source: deals_spa_kestrel.pdf
+  gold_entities:
+  - Kestrel SPA
+  - Escrow Amount
+  - Varenya Bank Limited
+  - Halden Holdings LLP
+  must_include:
+  - 55.56 crore
+  - 14 April 2027
+  - 29 September 2027
+  must_not: []
+  area: deals
+- id: deals_k3
+  category: keyword
+  question: By what date must Form FC-TRS be filed for the transfer of the Kestrel
+    Sale Shares, and who must file it?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Form FC-TRS must be filed on the FIRMS portal within sixty days, that is
+      on or before 29 December 2026, by the resident transferor Halden Holdings LLP
+      through its AD Category-I bank Varenya Bank Limited.
+    anchors:
+    - 29 December 2026
+    evidence: deals_fema_pricing_memo:c6
+    source: deals_fema_pricing_memo.docx
+  gold_entities:
+  - Form FC-TRS
+  - FC-TRS Due Date
+  - Halden Holdings LLP
+  - Varenya Bank Limited
+  - Reserve Bank of India
+  must_include:
+  - 29 December 2026
+  must_not: []
+  area: deals
+- id: deals_k4
+  category: keyword
+  question: According to the signing exposure schedule, what collar applies to the
+    net working capital adjustment, and which SPA clause does it sit under?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: The signing exposure schedule records a net working capital collar of 15750000
+      rupees under Clause 3.3, against a target working capital of 1186000000 rupees.
+    anchors:
+    - '15750000'
+    - Clause 3.3
+    evidence: deals_exposure_schedule:row6
+    source: deals_exposure_schedule.json
+  gold_entities:
+  - Signing Exposure Schedule
+  - Net Working Capital Collar
+  - Kestrel SPA
+  must_include:
+  - Clause 3.3
+  must_not: []
+  area: deals
+- id: deals_m1
+  category: multihop
+  question: What cap now limits the Seller's liability for the matter set out at Disclosure
+    Item 7 of the Kestrel Disclosure Letter?
+  hops: 3
+  bridge_entities:
+  - Paragraph 6.4 of Schedule 3
+  - Specific Tax Indemnity
+  - Original Specific Tax Indemnity Cap
+  - Amendment Agreement No. 1
+  gold_facts:
+  - fact: Disclosure Item 7 discloses the assessment year 2023-24 transfer pricing
+      draft order (tax and interest of ₹27.64 crore) and the related 2024-25 reference
+      against Paragraph 6.4 of Schedule 3.
+    anchors:
+    - ₹27.64 crore
+    evidence: deals_disclosure_letter:c4
+    source: deals_disclosure_letter.docx
+  - fact: Clause 10.2 of the SPA makes matters disclosed against Paragraph 6.4 of
+      Schedule 3 Specified Tax Matters, indemnified notwithstanding disclosure and
+      outside the General Cap, de minimis and Aggregate Claims Threshold, subject
+      to the cap in Clause 10.2(b).
+    anchors:
+    - Specified Tax Matters
+    evidence: deals_spa_kestrel:c13
+    source: deals_spa_kestrel.pdf
+  - fact: Amendment Agreement No. 1 replaced Clause 10.2(b), so the Specific Tax Indemnity
+      Cap is now ₹36.75 crore for all claims, replacing the figure originally agreed.
+    anchors:
+    - ₹36.75 crore
+    evidence: deals_amendment_no1:c2
+    source: deals_amendment_no1.pdf
+  gold_entities:
+  - Disclosure Item 7
+  - Kestrel Disclosure Letter
+  - Paragraph 6.4 of Schedule 3
+  - Specific Tax Indemnity
+  - Revised Specific Tax Indemnity Cap
+  - Amendment Agreement No. 1
+  - Halden Holdings LLP
+  must_include:
+  - 36.75 crore
+  must_not:
+  - 31.25 crore
+  area: deals
+- id: deals_m2
+  category: multihop
+  question: What per-share value did the Section 247 registered valuer conclude for
+    Kestrel, and what does that value imply for the least the purchaser may pay in
+    total for the shares being sold and the cushion left by the agreed deal value?
+  hops: 2
+  bridge_entities:
+  - Kestrel Fair Value per Share
+  - FEMA Pricing Floor
+  gold_facts:
+  - fact: The Section 247 registered valuer concluded a fair value of ₹1,268.40 per
+      equity share as at 31 March 2026, weighting the DCF and comparable companies
+      values 60:40.
+    anchors:
+    - ₹1,268.40
+    evidence: deals_valuation_report:c5
+    source: deals_valuation_report.pdf
+  - fact: Applying that value as the FEMA Floor to the 51,72,000 Sale Shares gives
+      a minimum aggregate consideration of ₹656.02 crore, which the ₹694.47 crore
+      Purchase Consideration exceeds by ₹38.45 crore.
+    anchors:
+    - ₹656.02 crore
+    - ₹38.45 crore
+    evidence: deals_fema_pricing_memo:c4
+    source: deals_fema_pricing_memo.docx
+  gold_entities:
+  - Kestrel Valuation Report
+  - Section 247 of the Companies Act, 2013
+  - Kestrel Fair Value per Share
+  - FEMA Pricing Floor
+  - Minimum Aggregate Consideration
+  - Purchase Consideration
+  must_include:
+  - 1,268.40
+  - '656.02'
+  must_not:
+  - '677.53'
+  area: deals
+- id: deals_m3
+  category: multihop
+  question: Until what date can the buyer rely on a Material Adverse Change at Kestrel
+    to walk away from the deal, and what procedure must it follow to do so?
+  hops: 3
+  bridge_entities:
+  - MAC Termination Right
+  - Long Stop Date
+  - Amendment Agreement No. 1
+  gold_facts:
+  - fact: A Material Adverse Change includes a 22.5 per cent decline in consolidated
+      EBITDA over two consecutive quarters, loss of a Key Customer with 18 per cent
+      or more of revenue, or an uninsured loss above ₹48.30 crore.
+    anchors:
+    - 22.5 per cent decline in consolidated EBITDA
+    evidence: deals_spa_kestrel:c3
+    source: deals_spa_kestrel.pdf
+  - fact: Under Clause 14.1(b) the Purchaser may terminate by written notice before
+      Completion, served within fifteen Business Days of becoming aware of the MAC
+      and in any event on or before the Long Stop Date, with an auditor-reviewed EBITDA
+      computation if limb (a) is relied on.
+    anchors:
+    - fifteen Business Days
+    evidence: deals_spa_kestrel:c17
+    source: deals_spa_kestrel.pdf
+  - fact: Amendment Agreement No. 1 extended the Long Stop Date from 30 September
+      2026 to 16 November 2026.
+    anchors:
+    - 16 November 2026
+    evidence: deals_amendment_no1:c3
+    source: deals_amendment_no1.pdf
+  gold_entities:
+  - Material Adverse Change
+  - MAC Termination Right
+  - Long Stop Date
+  - Amendment Agreement No. 1
+  - Kestrel SPA
+  - Orion Capital Partners (Mauritius) Ltd
+  must_include:
+  - 16 November 2026
+  must_not:
+  - 30 September 2026
+  area: deals
+- id: deals_m4
+  category: multihop
+  question: How was Red Flag RF-2 from the due diligence findings memo on Kestrel
+    finally dealt with in the signed transaction documents?
+  hops: 2
+  bridge_entities:
+  - Chakan Consent to Operate
+  - Chakan CTO Condition
+  gold_facts:
+  - fact: RF-2 found that the MPCB consent to operate for the Chakan Facility expired
+      on 17 January 2026 with renewal pending, and recommended making renewal a condition
+      precedent to Completion.
+    anchors:
+    - 17 January 2026
+    evidence: deals_dd_findings_memo:c3
+    source: deals_dd_findings_memo.pdf
+  - fact: Amendment Agreement No. 1 deleted the consent condition in Clause 7.1(e);
+      the Seller must procure the renewal by 26 February 2027, and ₹6.45 crore of
+      the Escrow Amount is held as the CTO Retention, from which the Purchaser may
+      recover Losses if the renewal is not obtained.
+    anchors:
+    - 26 February 2027
+    - ₹6.45 crore
+    evidence: deals_amendment_no1:c4
+    source: deals_amendment_no1.pdf
+  gold_entities:
+  - Red Flag RF-2
+  - DD Findings Memo
+  - Chakan Consent to Operate
+  - Chakan CTO Condition
+  - Amendment Agreement No. 1
+  - CTO Retention
+  - Chakan CTO Renewal Deadline
+  - Maharashtra Pollution Control Board
+  must_include:
+  - 26 February 2027
+  - 6.45 crore
+  must_not: []
+  area: deals
+- id: deals_a1
+  category: vocab_alias
+  question: For how long after completion is the Founder Vehicle barred from running
+    a competing business, and in which countries does the restriction apply?
+  hops: 1
+  bridge_entities: []
+  gold_facts:
+  - fact: Under Clause 12.1 the Seller (Halden Holdings LLP) may not compete for 39
+      months from the Completion Date in India, Sri Lanka, Bangladesh or Nepal; the
+      separate 27-month undertaking binds only the Promoter Directors.
+    anchors:
+    - 39 months
+    evidence: deals_spa_kestrel:c16
+    source: deals_spa_kestrel.pdf
+  gold_entities:
+  - Halden Holdings LLP
+  - Non-compete Covenant
+  - Kestrel Components Private Limited
+  must_include:
+  - 39 months
+  must_not: []
+  area: deals
+- id: deals_a2
+  category: vocab_alias
+  question: What is the maximum aggregate liability of the Mauritian Acquirer for
+    breaches of its own warranties, and within what period must such claims be notified?
+  hops: 1
+  bridge_entities: []
+  gold_facts:
+  - fact: Under Clause 15.4 the Purchaser's liability for breach of the Purchaser
+      Warranties is capped at 5 per cent of the Purchase Consideration, ₹34.72 crore,
+      and claims must be notified within 18 months after the Completion Date.
+    anchors:
+    - ₹34.72 crore
+    evidence: deals_spa_kestrel:c19
+    source: deals_spa_kestrel.pdf
+  gold_entities:
+  - Orion Capital Partners (Mauritius) Ltd
+  - Purchaser Liability Cap
+  - Purchase Consideration
+  must_include:
+  - 34.72 crore
+  must_not:
+  - 138.89 crore
+  area: deals
+- id: deals_p1
+  category: vocab_paraphrase
+  question: The company being bought has a not-for-profit arm that took money from
+    a donor overseas. What did the investigation team find wrong with how that money
+    came in, and how much was involved?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: Kestrel Shiksha Foundation received ₹1.37 crore from a Swedish foundation
+      without FCRA registration or prior permission under Section 11, and credited
+      it to an ordinary current account instead of the FCRA Account at SBI New Delhi
+      Main Branch required by Section 17.
+    anchors:
+    - ₹1.37 crore
+    evidence: deals_dd_findings_memo:c4
+    source: deals_dd_findings_memo.pdf
+  gold_entities:
+  - Kestrel Shiksha Foundation
+  - Red Flag RF-3
+  - Foreign Contribution (Regulation) Act, 2010
+  - DD Findings Memo
+  must_include:
+  - 1.37 crore
+  must_not: []
+  area: deals
+- id: deals_p2
+  category: vocab_paraphrase
+  question: Can part of what the overseas buyer pays be kept back and handed over
+    later, and what legal ceiling on the amount and the timing applies to that in
+    this deal?
+  hops: 0
+  bridge_entities: []
+  gold_facts:
+  - fact: The NDI Rules allow up to 25 per cent of the consideration to be deferred,
+      escrowed or indemnified for at most eighteen months from the transfer agreement;
+      the Escrow Amount and Tax Holdback total ₹76.39 crore (11.0 per cent) and must
+      all be released by 11 November 2027.
+    anchors:
+    - ₹76.39 crore
+    - 11 November 2027
+    evidence: deals_fema_pricing_memo:c5
+    source: deals_fema_pricing_memo.docx
+  gold_entities:
+  - Deferred Consideration Limit
+  - Foreign Exchange Management (Non-debt Instruments) Rules, 2019
+  - Escrow Amount
+  - Tax Holdback
+  must_include:
+  - 11 November 2027
+  must_not: []
+  area: deals
