@@ -5,6 +5,7 @@ labelled auto-extracted block (never a second Opus call, which would distort the
 """
 from __future__ import annotations
 
+import json
 import re
 
 from ..prompts.areas import REQUIRED_SECTIONS
@@ -43,6 +44,42 @@ def enforce_disclaimer(answer: str) -> tuple[str, bool]:
     if DISCLAIMER.lower()[:40] in answer.lower():
         return answer, False
     return answer.rstrip() + f"\n\n**Disclaimer**\n{DISCLAIMER}", True
+
+
+TOKEN_FOOTER = re.compile(r"\s*---\n\*Estimated Output Tokens: ~\d+ tokens\*\s*$")
+
+
+def _is_json(text: str) -> bool:
+    if text[0] not in "{[":
+        return False
+    try:
+        json.loads(text)
+        return True
+    except ValueError:
+        return False
+
+
+def estimate_tokens(text: str) -> int:
+    """Heuristic output-token estimate: characters / 4, plus 12.5% when the text has code blocks, is JSON,
+    or is at least 5% non-English letters. Deterministic, so it is identical online and offline."""
+    text = text.strip()
+    if not text:
+        return 0
+    n = len(text) / 4
+    letters = [c for c in text if c.isalpha()]
+    non_english = sum(1 for c in letters if not c.isascii()) / len(letters) if letters else 0.0
+    if "```" in text or _is_json(text) or non_english >= 0.05:
+        n *= 1.125
+    return max(1, round(n))
+
+
+def append_token_estimate(answer: str) -> tuple[str, int]:
+    """Appends the "Estimated Output Tokens" footer at the very bottom of the answer (idempotent)."""
+    body = TOKEN_FOOTER.sub("", answer).rstrip()
+    if not body:
+        return answer, 0
+    n = estimate_tokens(body)
+    return f"{body}\n\n---\n*Estimated Output Tokens: ~{n} tokens*", n
 
 
 def area_checks(area: str, answer: str, context: list[dict]) -> tuple[str, dict]:

@@ -134,6 +134,7 @@ Relation triples are sent only when their evidence passage is in the context.
   - GRC: a "⚠ Penalty exposure" block first, plus a control→obligation table.
   - Deals: a "Deal exposure" section.
 - **Enforced in code (`output_checks.area_checks`):** if the GRC penalty block is missing, an auto-extracted block is inserted (never a repair call). PII is masked on the way in and out. Injection phrases are flagged and down-weighted at ingest.
+- **Output-token footer (`output_checks.append_token_estimate`, called in `registry.summarize`):** every answer, refusals included, ends with `---` and `*Estimated Output Tokens: ~N tokens*`. N is characters ÷ 4, plus 12.5% for code blocks, JSON or ≥5% non-English letters. It is computed in code, not by the model, so the shared prompt is unchanged. It is added after the `kpi` node, so the faithfulness judge, citation check and `answer_pass` never see it. It is also returned as `output_tokens_est`. The exact Claude count stays in `usage.output_tokens`.
 
 ## 8. Claude API rules (`llm/calls.py`)
 - **Never send:** `temperature` / `top_p` / `top_k`, assistant prefill, forced `tool_choice`, or Opus thinking disabled.
@@ -157,7 +158,7 @@ Relation triples are sent only when their evidence passage is in the context.
   ```bash
   cd backend && .venv/bin/python -m pytest -q
   ```
-  29 tests, offline, using hashing embeddings (`MULTIRAG_FAKE_EMBED=1`) and a temp `DATA_DIR`.
+  30 tests, offline, using hashing embeddings (`MULTIRAG_FAKE_EMBED=1`) and a temp `DATA_DIR`.
 - **Smoke run:**
   ```bash
   .venv/bin/python scripts/smoke.py

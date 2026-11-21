@@ -16,6 +16,7 @@ from langgraph.graph import END, START, StateGraph
 from ..config import Const, hyperparams
 from ..eval import gold as gold_mod
 from ..eval import history
+from ..guardrails import output_checks
 from ..llm import client
 from ..retrieval.stores import KB
 from . import nodes as N
@@ -176,10 +177,12 @@ def finish(state: dict, emit_fn: Callable | None = None, skip_judge: bool = Fals
 
 def summarize(out: dict) -> dict:
     ctx = [{**c, "text": c["text"]} for c in out.get("context") or []]
+    # The footer is added after the kpi node, so the judge, citation check and answer_pass all see the body only.
+    answer, out_tokens_est = output_checks.append_token_estimate(out.get("answer", ""))
     return {
         "engine": out.get("engine"), "engine_label": ENGINE_INFO[out.get("engine", "standard")]["label"],
         "area": out.get("area"), "question": out.get("question"), "masked_question": out.get("masked_question"),
-        "answer": out.get("answer", ""), "citations": out.get("citations") or [], "context": ctx,
+        "answer": answer, "output_tokens_est": out_tokens_est, "citations": out.get("citations") or [], "context": ctx,
         "triples": out.get("triples") or [], "linked_entities": out.get("linked_entities") or [],
         "hypotheses": out.get("hypotheses") or [], "sufficiency": out.get("sufficiency"),
         "hop_k_used": out.get("hop_k_used"), "loops": out.get("loops", 0),

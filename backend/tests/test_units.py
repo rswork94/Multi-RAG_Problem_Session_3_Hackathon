@@ -2,7 +2,7 @@
 import re
 
 from app.config import Const
-from app.guardrails.output_checks import area_checks, validate_citations
+from app.guardrails.output_checks import append_token_estimate, area_checks, estimate_tokens, validate_citations
 from app.guardrails.pii import mask_pii
 from app.guardrails.scope import heuristic_scope
 from app.ingest.extract import regex_extract
@@ -95,6 +95,19 @@ def test_citation_validator_and_area_checks():
     ctx = [{"n": 1, "text": "A monetary penalty of ₹2,40,000 per instance applies for each failure."}]
     fixed, rep = area_checks("grc", "**Answer**\nx [1]\n\n**Control → obligation mapping**\nnone", ctx)
     assert "Penalty exposure" in fixed and rep["auto_filled"] == ["Penalty exposure block"]
+
+
+def test_output_token_estimate_footer():
+    assert estimate_tokens("a" * 400) == 100                                   # characters / 4
+    # 800 characters -> 200, +12.5% -> 225
+    assert estimate_tokens("```py\n" + "x" * 790 + "\n```") == 225             # code blocks
+    assert estimate_tokens('{"rate": "' + "y" * 788 + '"}') == 225             # JSON
+    assert estimate_tokens("कर " * 267) == 225                                 # non-English script (trailing space stripped)
+    assert estimate_tokens("Rate ₹2,40,000 → 7.5% ⚠ " * 4) == round(len(("Rate ₹2,40,000 → 7.5% ⚠ " * 4).strip()) / 4)
+    ans, n = append_token_estimate("**Answer**\nThe rate is 7.5 per cent [1].\n\n**Disclaimer**\nx")
+    assert ans.endswith(f"\n\n---\n*Estimated Output Tokens: ~{n} tokens*") and n == estimate_tokens(ans.split("\n\n---")[0])
+    assert append_token_estimate(ans) == (ans, n)                              # idempotent
+    assert append_token_estimate("") == ("", 0)
 
 
 def test_answer_types():
