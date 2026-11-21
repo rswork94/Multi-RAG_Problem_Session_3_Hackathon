@@ -29,6 +29,7 @@ export function ModelSettings() {
   const [s, setS] = useState<LlmSettings | null>(null);
   const [provider, setProvider] = useState<"anthropic" | "openrouter">("openrouter");
   const [key, setKey] = useState("");
+  const [showKey, setShowKey] = useState(false);
   const [synth, setSynth] = useState("");
   const [util, setUtil] = useState("");
   const [effort, setEffort] = useState<"low" | "medium" | "high">("medium");
@@ -62,7 +63,9 @@ export function ModelSettings() {
     setSynth(DEFAULTS[p].synth);
     setUtil(DEFAULTS[p].util);
     setKey("");
+    setShowKey(false);
   };
+  const savedHere = !!s?.has_key && s.provider === provider;
 
   async function save(test: boolean) {
     setBusy(true);
@@ -74,6 +77,7 @@ export function ModelSettings() {
       const r = await sendJSON<LlmSettings>("/api/llm/settings", "PUT", body);
       setS(r);
       setKey("");
+      setShowKey(false);
       if (test) {
         const t = await sendJSON<any>("/api/llm/test", "POST");
         setMsg({ kind: "good", text: `Connected · ${t.model} replied in ${t.ms} ms ($${(t.cost_usd ?? 0).toFixed(5)})` });
@@ -100,7 +104,7 @@ export function ModelSettings() {
         <h3 style={{ margin: 0 }}>Model settings</h3>
         <div className="row">
           <span className={`pill ${s?.mode === "online" ? "good" : "warn"}`}>
-            {s?.mode === "online" ? `Online · ${s.provider}${s.key_hint ? " " + s.key_hint : ""}` : "Offline"}
+            {s?.mode === "online" ? `Online · ${s.provider}${s.key_hint ? ` · key ending ${s.key_hint.replace("…", "")}` : ""}` : "Offline"}
           </span>
           <button className="btn small" onClick={() => setOpen(!open)}>{open ? "Hide" : "Edit"}</button>
         </div>
@@ -114,8 +118,18 @@ export function ModelSettings() {
           </div>
           <label className="col small" style={{ gap: 4 }}>
             <span>{provider === "openrouter" ? "OpenRouter API key" : "Anthropic API key"}</span>
-            <input type="password" autoComplete="off" spellCheck={false} value={key} onChange={(e) => setKey(e.target.value)}
-              placeholder={s?.has_key && s.provider === provider ? `saved key ${s.key_hint} (leave blank to keep)` : provider === "openrouter" ? "sk-or-v1-…" : "sk-ant-…"} />
+            <div className="row" style={{ flexWrap: "nowrap", gap: 6 }}>
+              <input type={showKey ? "text" : "password"} autoComplete="off" spellCheck={false} value={key}
+                onChange={(e) => setKey(e.target.value)} style={{ flex: 1, minWidth: 0 }}
+                placeholder={savedHere ? "Paste a new key to replace the saved one" : `Paste your key (${provider === "openrouter" ? "sk-or-v1-…" : "sk-ant-…"})`} />
+              <button type="button" className="btn small" onClick={() => setShowKey(!showKey)} disabled={!key}
+                title={showKey ? "Hide the pasted key" : "Show the pasted key to check it"}>{showKey ? "Hide key" : "Show key"}</button>
+            </div>
+            {savedHere && !key && (
+              <span className="muted">
+                A full key is saved. For safety only its last 4 characters ({s!.key_hint.replace("…", "")}) are ever shown. Leave this blank to keep it.
+              </span>
+            )}
           </label>
           <label className="col small" style={{ gap: 4 }}>
             <span>Answer model (all three engines use it, so the comparison stays fair)</span>
@@ -146,7 +160,7 @@ export function ModelSettings() {
           </div>
           <div className="small muted">
             The key goes only to the local backend, which uses it to call {provider === "openrouter" ? "openrouter.ai" : "api.anthropic.com"}.
-            It is never shown again{remember ? " and is stored in backend/data/llm_settings.json (owner-only, git-ignored)" : " and lives in memory until the server restarts"}.
+            After saving, the full key stays in the backend{remember ? " (backend/data/llm_settings.json, owner-only, git-ignored)" : " (in memory until the server restarts)"} and is never sent back to the browser.
           </div>
         </>
       )}

@@ -101,7 +101,7 @@ select { max-width: 100%; min-width: 0; text-overflow: ellipsis; }
 .seg button { border: 0; background: var(--panel); padding: 5px 10px; cursor: pointer; border-right: 1px solid var(--border); }
 .seg button:last-child { border-right: 0; }
 .seg button.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-select, input[type="text"], input[type="number"], textarea { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; }
+select, input[type="text"], input[type="password"], input[type="number"], textarea { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; }
 textarea { width: 100%; resize: vertical; }
 label.check { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
 
