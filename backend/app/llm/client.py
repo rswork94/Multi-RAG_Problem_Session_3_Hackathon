@@ -1,9 +1,12 @@
 """LLM provider settings (switchable at runtime from Tab 1), credential handling and usage/cost accounting.
 
 Providers (both through the official `anthropic` SDK, Messages API):
-  anthropic   - api.anthropic.com. Key from the UI, ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN, or an `ant auth` profile.
+  anthropic   - api.anthropic.com.
   openrouter  - OpenRouter's Anthropic-compatible endpoint (base_url https://openrouter.ai/api, bearer key).
                 Model ids look like "anthropic/claude-opus-5.5".
+The key is pasted in the UI (Tab 1 -> Model settings) and that is the ONLY source: no .env file, no environment
+variable (ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, OPENROUTER_API_KEY) and no `ant` CLI profile. The SDK client is
+always built with an explicit credential and base_url, so it never falls back to the environment or a profile.
 The key is never returned to the UI (only its last 4 characters), never logged and never written to disk: it lives in
 server memory only and is gone when the server stops. A data/llm_settings.json left by older versions (which could
 save the key) is deleted at startup.
@@ -11,16 +14,15 @@ save the key) is deleted at startup.
 from __future__ import annotations
 
 import logging
-import os
 import threading
 import time
 from dataclasses import asdict, dataclass, field
-from pathlib import Path
 
 import anthropic
 
 from ..config import settings
 
+ANTHROPIC_BASE = "https://api.anthropic.com"
 OPENROUTER_BASE = "https://openrouter.ai/api"
 DEFAULTS = {
     "anthropic": {"synth_model": "claude-opus-5-5", "utility_model": "claude-haiku-5-5"},
@@ -70,13 +72,9 @@ def _purge_saved_key() -> None:
 
 
 def _initial() -> LLMSettings:
+    """Starts with no key (offline) and the default models; everything else is chosen in the UI."""
     _purge_saved_key()
-    provider = os.getenv("LLM_PROVIDER", "openrouter" if os.getenv("OPENROUTER_API_KEY") else "anthropic")
-    key = os.getenv("OPENROUTER_API_KEY", "") if provider == "openrouter" else ""
-    return LLMSettings(provider=provider, api_key=key,
-                       synth_model=os.getenv("SYNTH_MODEL", "") or DEFAULTS[provider]["synth_model"],
-                       utility_model=os.getenv("UTILITY_MODEL", "") or DEFAULTS[provider]["utility_model"],
-                       synth_effort=os.getenv("SYNTH_EFFORT", "medium"))
+    return LLMSettings(provider="anthropic", api_key="", **DEFAULTS["anthropic"])
 
 
 _settings = _initial()
@@ -109,16 +107,8 @@ def update(provider: str, api_key: str | None, synth_model: str, utility_model: 
 
 
 def available() -> bool:
-    if settings.force_offline:
-        return False
-    s = _settings
-    if s.api_key:
-        return True
-    if s.provider == "anthropic":
-        if os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN"):
-            return True
-        return (Path.home() / ".config" / "anthropic").exists()  # `ant auth login` profile
-    return False
+    """Online only when a key was pasted in the UI (and the run is not forced offline)."""
+    return bool(_settings.api_key) and not settings.force_offline
 
 
 def mode() -> str:
@@ -130,13 +120,15 @@ def client() -> anthropic.Anthropic:
     with _lock:
         if _client is None:
             s = _settings
+            if not s.api_key:
+                raise LLMError("No API key. Paste one in Tab 1 → Model settings.")
+            # An explicit credential and base_url stop the SDK reading ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN /
+            # ANTHROPIC_BASE_URL or an `ant` profile, so only the UI key is ever sent, and only to the chosen provider.
             if s.provider == "openrouter":
-                _client = anthropic.Anthropic(api_key=None, auth_token=s.api_key, base_url=OPENROUTER_BASE,
-                                              max_retries=3, default_headers={"X-Title": "Multi-RAG Benchmark"})
-            elif s.api_key:
-                _client = anthropic.Anthropic(api_key=s.api_key, max_retries=3)
+                _client = anthropic.Anthropic(auth_token=s.api_key, base_url=OPENROUTER_BASE, max_retries=3,
+                                              default_headers={"X-Title": "Multi-RAG Benchmark"})
             else:
-                _client = anthropic.Anthropic(max_retries=3)
+                _client = anthropic.Anthropic(api_key=s.api_key, base_url=ANTHROPIC_BASE, max_retries=3)
         return _client
 
 

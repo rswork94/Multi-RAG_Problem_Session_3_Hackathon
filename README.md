@@ -27,9 +27,7 @@ See [CLAUDE.md](CLAUDE.md) for the full design.
    - pick the answer model (default Opus 5.5) and the utility model (default Haiku 5.5)
    - click **Apply & test**
 
-   The key is held in server memory only, so paste it again after each restart.
-
-   Alternatively, set `ANTHROPIC_API_KEY` or `OPENROUTER_API_KEY` in `backend/.env`.
+   This screen is the only way to give the app a key: there is no `.env` file, and environment variables such as `ANTHROPIC_API_KEY` are ignored. The key is held in server memory only, so paste it again after each restart.
 4. Build the UI:
    ```bash
    cd ../frontend && npm install && npm run build
@@ -96,11 +94,12 @@ Prices: Opus 5.5 is $4 / $20 per MTok; Haiku 5.5 is $0.10 / $0.50.
 ## Models and keys
 - **Both providers go through the official `anthropic` SDK.** OpenRouter uses its Anthropic-compatible endpoint (`https://openrouter.ai/api`), with model ids such as `anthropic/claude-opus-5.5`. The model list and prices come live from OpenRouter's public catalogue.
 - **The answer model is the same for all three engines**, so the comparison stays fair. The utility model handles HyDE passages, graph extraction and the faithfulness judge.
-- **The key is never written to disk.** It lives in the server's memory only and is gone when the server stops. It is never sent back to the browser: the UI shows only its last 4 characters. **Show key** lets you check a pasted key before applying it, and **Forget key** drops it from memory.
+- **The key is entered in the UI and nowhere else.** The app reads no `.env` file and ignores `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, `OPENROUTER_API_KEY`, `ANTHROPIC_BASE_URL` and saved `ant` CLI profiles, so the key you paste is the only one used, and it goes only to the provider you chose.
+- **The key is never stored.** It is never written to disk. It lives in the server's memory only and is gone when the server stops. It is never sent back to the browser: the UI shows only its last 4 characters. **Show key** lets you check a pasted key before applying it, and **Forget key** drops it from memory.
 - **If a provider rejects an Anthropic-specific parameter** (effort, JSON-schema output, server-side fallback), the app retries with a simpler request and remembers what works.
 
 ## What leaves your machine
-Only Claude API calls, and only when a key is configured. They send:
+Only Claude API calls, and only after you paste a key in **Model settings**. They send:
 - PII-masked questions and retrieved passages (synthesis and judge)
 - clause text (entity extraction)
 - the question (HyDE)

@@ -73,8 +73,8 @@ def extractive_answer(question: str, area: str, ctx: list[dict], triples: list[d
         if c["n"] not in seen:
             seen.add(c["n"])
             lines.append(f"- {c.get('section') or c['title']} ({c['doc_type']}, {c['source']}, p.{c['page']}) [{c['n']}]")
-    lines.append("\n**Gaps & limitations**\nExtractive summary only; no legal reasoning was applied. Configure "
-                 "ANTHROPIC_API_KEY for a reasoned answer.")
+    lines.append("\n**Gaps & limitations**\nExtractive summary only; no legal reasoning was applied. Paste an "
+                 "API key in Tab 1 → Model settings for a reasoned answer.")
     if any(c.get("injection_flag") for c in ctx):
         lines.append("A retrieved passage contained instruction-like text; it was treated as data and disregarded.")
     lines.append(f"\n**Disclaimer**\n{DISCLAIMER}")

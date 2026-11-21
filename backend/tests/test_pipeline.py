@@ -97,6 +97,31 @@ def test_api_round_trip(mini_corpus):
     assert c.get("/api/kpis").json()["latest"]["engine"] == "graph"
 
 
+def test_key_comes_only_from_the_ui(monkeypatch):
+    """Env keys, ANTHROPIC_BASE_URL and `ant` profiles are ignored: only the pasted key is used, sent to the chosen provider."""
+    from app.llm import client
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-env-SECRET")
+    monkeypatch.setenv("ANTHROPIC_AUTH_TOKEN", "env-token-SECRET")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "sk-or-env-SECRET")
+    monkeypatch.setenv("ANTHROPIC_BASE_URL", "https://not-anthropic.example")
+    monkeypatch.setattr(client.settings, "force_offline", False)
+    try:
+        client.update("anthropic", "", "", "", "medium")
+        assert not client.available() and client.mode() == "offline"
+        with pytest.raises(client.LLMError):
+            client.client()
+        client.update("anthropic", "sk-ant-ui-0000-1234", "", "", "medium")
+        c = client.client()
+        assert c.api_key == "sk-ant-ui-0000-1234" and c.auth_token is None
+        assert str(c.base_url).startswith("https://api.anthropic.com")
+        client.update("openrouter", "sk-or-ui-0000-5678", "", "", "medium")
+        c = client.client()
+        assert c.auth_token == "sk-or-ui-0000-5678" and c.api_key is None  # no Anthropic env key leaks to OpenRouter
+        assert str(c.base_url).startswith("https://openrouter.ai/api")
+    finally:
+        client.update("anthropic", "", "", "", "medium")
+
+
 def test_llm_settings_never_return_or_store_the_key():
     from fastapi.testclient import TestClient
 

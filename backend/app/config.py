@@ -6,11 +6,11 @@ import os
 import threading
 from pathlib import Path
 
-from dotenv import load_dotenv
 from pydantic import BaseModel, Field, model_validator
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BACKEND_DIR / ".env")
+# No .env file is read. The API key comes only from the UI (see llm/client.py). The environment variables below are
+# non-secret runtime switches (data dir, local models, test/offline flags).
 
 # Quiet, deterministic, Apple-silicon-friendly ML runtime (must be set before torch/tokenizers import).
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")

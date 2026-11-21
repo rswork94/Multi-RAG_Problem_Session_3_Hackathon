@@ -7,7 +7,7 @@ backend/.pytest_cache/
 # Runtime data: vector index, graph, caches, run history (API keys are never written here)
 backend/data/
 
-# Secrets
+# Safety net only: the app never reads .env (API keys are entered in the UI and held in memory)
 .env
 backend/.env
 

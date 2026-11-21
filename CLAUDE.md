@@ -19,7 +19,7 @@ This is a fresh build. `../Class_3/` (TaxGraph RAG) is a reference only.
 | Corpus | Synthetic gold corpus written by hand as fact-graph specs (`backend/corpus_spec/*.yaml`) and rendered deterministically to 22 PDF/DOCX/JSON/CSV docs, with 36 labelled questions and 99 alias clusters |
 | LLMs | The **answer model** (default Opus 5.5) writes **every** final answer: all 3 engines, same prompt and effort. The **utility model** (default Haiku 5.5) does HyDE, per-clause extraction and the faithfulness/RCR judge. Both are chosen in **Tab 1 → Model settings**, with provider **Anthropic API** or **OpenRouter** |
 | SDK | Official `anthropic` SDK for both providers. OpenRouter is called through its Anthropic-compatible Messages endpoint (`base_url=https://openrouter.ai/api`, bearer key, ids like `anthropic/claude-opus-5.5`). Model list and prices come from OpenRouter's public catalogue |
-| Key handling | **Never written to disk** (user decision): server memory only, gone on restart. There is no "remember" option, and a `data/llm_settings.json` left by older versions is deleted at startup. Never returned to the UI (last 4 characters only, labelled "key ending XXXX") and never logged. The key field takes a paste, with a **Show key** toggle to check it before applying and a **Forget key** button |
+| Key handling | **UI is the only source, and the key is never stored** (user decision):<br>• No `.env` (python-dotenv removed, no `.env.example`). `ANTHROPIC_API_KEY` / `ANTHROPIC_AUTH_TOKEN` / `OPENROUTER_API_KEY` / `ANTHROPIC_BASE_URL` and `ant` profiles are ignored: the SDK is always built with an explicit credential and `base_url`, and with no UI key the app is offline (`client()` raises `LLMError`).<br>• Server memory only, gone on restart. No "remember" option, and a `data/llm_settings.json` left by older versions is deleted at startup.<br>• Never returned to the UI (last 4 characters only, labelled "key ending XXXX") and never logged. The key field takes a paste, with **Show key**, **Apply** and **Forget key** |
 | Embeddings | `BAAI/bge-large-en-v1.5` (1024-d) via `langchain_huggingface.HuggingFaceEmbeddings` on MPS, with the query instruction prefix on queries. `BAAI/bge-reranker-base` cross-encoder |
 | Offline | Everything works with no key: regex extraction, offline HyDE (lay → regulatory query rewriting), extractive answers in the same format, lexical judge |
 
@@ -158,7 +158,7 @@ Relation triples are sent only when their evidence passage is in the context.
   ```bash
   cd backend && .venv/bin/python -m pytest -q
   ```
-  30 tests, offline, using hashing embeddings (`MULTIRAG_FAKE_EMBED=1`) and a temp `DATA_DIR`.
+  31 tests, offline, using hashing embeddings (`MULTIRAG_FAKE_EMBED=1`) and a temp `DATA_DIR`.
 - **Smoke run:**
   ```bash
   .venv/bin/python scripts/smoke.py

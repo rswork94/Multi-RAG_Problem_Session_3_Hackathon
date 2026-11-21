@@ -84,9 +84,7 @@ class LLMSettingsBody(BaseModel):
 
 @app.get("/api/llm/settings")
 def get_llm_settings():
-    import os
-    return {**client.current().public(), "mode": client.mode(),
-            "env_credentials": bool(os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN"))}
+    return {**client.current().public(), "mode": client.mode()}
 
 
 @app.put("/api/llm/settings")

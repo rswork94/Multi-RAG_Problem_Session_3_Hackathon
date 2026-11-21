@@ -10,7 +10,6 @@ interface LlmSettings {
   has_key: boolean;
   key_hint: string;
   mode: "online" | "offline";
-  env_credentials: boolean;
 }
 interface ModelInfo { id: string; name: string; price_in: number; price_out: number }
 
@@ -80,9 +79,7 @@ export function ModelSettings() {
         const t = await sendJSON<any>("/api/llm/test", "POST");
         setMsg({ kind: "good", text: `Connected · ${t.model} replied in ${t.ms} ms ($${(t.cost_usd ?? 0).toFixed(5)})` });
       } else if (forget) {
-        setMsg({ kind: "info", text: r.mode === "online"
-          ? "Key forgotten. Still online through a key set in the server's environment."
-          : "Key forgotten. The app is offline until you paste a key." });
+        setMsg({ kind: "info", text: "Key forgotten. The app is offline until you paste a key." });
       } else {
         setMsg({ kind: "info", text: r.mode === "online" ? "Applied. Answers now use Claude." : "Applied. No key yet, so the app stays offline." });
       }
